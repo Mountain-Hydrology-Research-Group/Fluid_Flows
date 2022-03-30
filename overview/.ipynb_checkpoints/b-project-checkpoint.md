@@ -1,44 +1,51 @@
 
-# Course Project: CEWA 565
+# Course Project: CEE 348
 
-The goal of the course project is to give you hands on experience dealing with data of particular interest to you, as well as experience writing about and presenting data and statistical information. Ask and answer a question (pose a hypothesis), using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. Explain your objectives, your data source, your methodology, and your results. Discuss remaining uncertainties.Project will consist of an oral presentation (20% of total) and a written report (80% of total), which will be no longer than 10 pages (for a group of two; or 15 for a group of three), including figures.
+Due as a 3-5 minute video presentation during the Final Exam slot, 6/6, 10:30-12:20
 
-```note
-**Sources of help:**
-
-UW has services to help people with [statistics](https://www.stat.washington.edu/consulting/) and [data analysis](http://escience.washington.edu/dss-hours). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
-```
-
-
-## Potential project ideas...
-
-You are welcome to use your own data and answer a question of interest to you and relevant to your own research – please let the instructor know as early as possible so that we can make sure you have sufficient data to be successful. Alternatively, you may choose one of the projects below. Multiple groups may answer the same general question, but they should pick different specific data or specific tests to use, which can be coordinated in conjunction with the instructor. Past project examples are available on the [class Canvas page](https://canvas.uw.edu/) under *Files* > *Student Projects and Presentations* > *Project Examples*.
-
-1. **How does forest harvesting affect flooding?** Using data from the [HJ Andrews experimental forest](https://andrewsforest.oregonstate.edu/), determine whether the risk of flooding has increased following forest harvesting. You may download timeseries data from the [class Canvas page](https://canvas.uw.edu/) or from the [HJ Andrews data page](https://andrewsforest.oregonstate.edu/data). 
-* Watershed 1 was a 400- to 500-year old-growth forest, measured from 1953-1961; from 1962-66, it was 100% clearcut, and in 1967, it was burned. 
-* Watershed 2 was kept as a control during this time.
-Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether forest removal increases flood risk at different return intervals in the HJ Andrews area.  What is your confidence in this (Type I and Type II errors)?  How sensitive are your results to the statistical tests you chose?
-
-2. **How does forest regeneration (following harvesting) change summer streamflow, or low flows?** Similar to question 1, again using the HJ Andrews data.  See [Perry & Jones (2017)](https://doi.org/10.1002/eco.1790) paper on this topic. (Ask the instructor for a copy of this paper if you're unable to access it online)
-
-3. **How does stream temperature in different months and different streams relate to the onset date of snowmelt runoff (when the streams start rising)?** Elevated stream temperatures can be unhealthy for fish if snow melts earlier (resulting in earlier streamflow). You may download time series of discharge and stream temperature [here](https://depts.washington.edu/mtnhydr/Pages/Data/yosemite.shtml) for different streams in Yosemite National Park, California. Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether stream 
-temperature is significantly changed by streamflow timing. What is your confidence in this? You may want to consider different months of the year or different times of the day (e.g., daily maximum temperature vs. daily mean), and you may want to compare and contrast streams of different sizes. (See this [guide](https://depts.washington.edu/mtnhydr/Pages/Data/yosemite/Lundquist_2016_WRR_SupportingInfo.pdf) to learn more about these sites. Also, talk to Jessica if you want more recent data.)
-
-4. **Does snow accumulation and/or melt change after forest disturbance?  How?** (Please ask Jessica if you’re interested in this project.)
-
-5. **How do temperature and relative humidity vary across San Juan Island?  Are there potential locations of climate refugia?** (Please ask Jessica if you’re interested in this project.)
+Milestones will be due as part of weekly homework assignments.  Completing each milestone on time will give you credit towards that week’s homework assignment.
+* As part of homework 2 (due 4/14), you need to rank from 1 to 10, your top choices of topics for your video, from the topic list below.  We will have a different person on each topic.  I will strive to get everyone as close to their top choice as possible and will announce your topic on 4/21.
+* As part of homework 5 (due 5/5), you will need a one-page storyboard (sketches and outline) of what you plan to present in your video – what will you cover and how you plan to present it. [Note that people responsible for later topics in the quarter should reach out to the professor for advance access to the material.]
+* As part of homework 6 (due 5/12), you will need to provide feedback to two other people about what you think of their storyboard ideas.
+* As part of homework 8 (due 5/26), you will need to provide a revised storyboard, as well as an update on how video recording and/or prepping is progressing.
+* Final prep for final exam day(6/5), upload or provide link to your video – realize that sometimes this can be slow and take overnight, so have your video finished the day before you want to present it.
+* Final exam (6/6), present your video to the class.
 
 
-6. **Did the 2021 record summer heat lead to unprecedented snow melt on Mt. Rainier?**  Much recent news has talked about the 2021 Pacific Northwest heat wave and its effects on snow and glacier melt at Mt. Rainier.  For this project, you could look at snow data from NRCS snotel sites near Mt. Rainier and streamflow from USGS-monitored rivers that drain Mt. Rainier and assess how different 2021 was from the historic record and if there are trends in the data that would reflect increasing snowmelt in recent years. 
 
-7.  **Choose your own adventure...**
+
+## Topic List for your Videos...
+
+1.	Atmospheric stability (inversions)
+2.	Atmospheric winds (dynamics)
+3.	Moisture in the atmosphere (e.g., thermodynamics, fog, clouds
+4.	Orographic precipitation
+5.	Atmospheric pollution (gaussian plume solution to advection/dispersion from a smokestack)
+6.	Atmospheric pollution (airshed box model)
+7.	Watershed delineation
+8.	Water balance
+9.	Calculating total precipitation over a watershed
+10.	Determining peak runoff (unit hydrograph or rational method)
+11.	Evaporation
+12.	Flood frequency
+13.	Groundwater – Darcy’s Law
+14.	Groundwater – Flow Nets
+15.	Groundwater – contaminant transport
+16.	Measuring and calculating river discharge
+17.	River velocities and flow resistance (bed friction
+18.	Momentum balance in a river channel
+19.	Predicting the concentration of a pollutant in a river
+20.	Shear flow dispersion
+21.	Seaward and landward flow speeds in an estuary
+22.	Mixing in an estuary
+
 
 
 ## Grading Rubic
 
 
 ### Presentation 
-(30 points; will account for 20% of project grade)
+(30 points; will account for 15% of total grade)
 
 A powerpoint-type presentation, like you would expect at a conference, 10 minutes in length, with an additional 5 minutes for questions. Your classmates are your audience. Present your question, why it is important, what methods you employed to answer the question, your major results, and the implications of your results. For pairs, both project partners will present together.
 
@@ -59,23 +66,3 @@ A powerpoint-type presentation, like you would expect at a conference, 10 minute
   - Ability to relate results to other studies and other presentations in the class
 
 
-### Written Report
-(30 points; will account for 80% of project grade)
-
-For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 (for a group of two; or 15 for a group of three) pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.
-
-* Quality of Writing (10 points)
-  - Clear and easy to read 
-  - Proper grammar and spelling
-  - Clear statement of the problem 
-  - Good transitions from one section to the next
-  - Clarity of explanations of what you did
-* Technical Analysis (10 points)
-  - Clearly described methods, proper literature cited
-  - Technical difficulty of methods applied
-  - Accuracy of results
-* Interpretation, Analysis, and Discussion of Result (10 points)
-  - Attempted to explain why certain patterns were observed in the data and/or analysis 
-  - Thought about results in context of other studies
-  - Outlined next steps to be taken
-  - Addressed underlying assumptions in the analysis and how these may have affected results

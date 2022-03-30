@@ -1,26 +1,28 @@
 
-# Syllabus: CEE 465 & CEWA 565
+# Syllabus: CEE 348
 
 ## Course Overview
 
-**Data Analysis in Water Sciences - Fall Quarter, 2021**
+**Fluid Flows in the Environment - Spring Quarter, 2022**
 
-The course will cover a number of fundamental topics related to data analysis including statistical inference testing and error estimation, use of linear and quantile-based regression models, Monte Carlo simulation, time series analysis, Bayes theorem, and data visualization using modern computer techniques.
+The course introduces the fluid flows of the environment. We will survey the range of flow processes that influence the transport and dispersion of contaminants and other material in the environment and develop a framework for predicting their impact.  
+Since each of the flows considered are complex, this course aims to provide only an introduction to each of the key flows. It emphasizes how the core principles of fluid mechanics apply to multiple aspects of the environmental system, as well as the key aspects of fluid flows in the environment that determine the impact of pollutants or of too much or too little water.
+
+
 
 | **CEE 465** | SLN 12213 | 4 units |
-| **CEWA 565A** | SLN 12295 | 4 units |
-| **CEWA 565B PCE** | SLN 12296 | 4 units |
+
 
 
 **Instructor:**      Jessica Lundquist, jdlund@uw.edu
 
-**TA:**          Hannah Besso, bessoh2@uw.edu 
+**TA:**          Mika Emoto, mikae@uw.edu 
 
-**Lectures:**      Tuesdays & Thursdays: 10:30 am - 12:20 pm (Pacific Time)
+**Lectures:**      Tuesdays & Thursdays: 10:00 am - 11:20 pm (Pacific Time)
+**Practical:**     Tuesdays:  11:30 - 12:20
 
 The room location, and the Zoom link (if needed) to remotely attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
 
-**Data Analysis Feedback Form**: Use this form to provide anonymous feedback to the TA and instructor. The link to the form is available in the copy of the syllabus on the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). 
 
 ### Learning Objectives
 
@@ -32,7 +34,7 @@ By the end of the course, students should be able to
 ```note
 ### Guiding principles for this quarter
 1. **Our learning situation is still in flux.**
-  * We have a room to meet together, masked, on campus, but we expect that some people will need to stay home at times during the quarter
+  * We have a room to meet together, on campus, but we expect that some people will need to stay home at times during the quarter
   * Therefore, we are prepared for online options, for potentially teaching remotely, for potentially learning from home, and for varied access to learning materials
 2. **The humane option is the best option.**
   * We are going to prioritize supporting each other as humans
@@ -40,10 +42,10 @@ By the end of the course, students should be able to
   * We are going to prioritize sharing resources and communicating clearly
   * We are going to prioritize learning what is most useful for you
 3. **We will foster intellectual nourishment, social connection, and personal accommodation.**
-  * Accessible asynchronous content for diverse access, time zones, and contexts
+  * Accessible asynchronous content for diverse access and contexts
   * Accessible synchronous discussion to learn together
 4. **We will remain flexible and adjust to the situation.**
-  * Nobody knows where this is going and what we’ll need to adapt
+  * Nobody knows what we’ll need to adapt
   * Everybody needs support and understanding in these continuing unprecedented times
   * Provide feedback at any point in the quarter and we will try to improve and adapt
 5. **We’re all in this together**
@@ -55,16 +57,12 @@ By the end of the course, students should be able to
 
 Jessica: Thursdays, immediately after class; or by appointment
 
-Hannah: Mondays, 2:30-3:30 Wilcox 264
+Mika: Wednesdays, 4:00-5:00 More 110
 
-```note
-The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
-```
 
 ### Textbooks
 
- * **Required**: *[Statistical Methods in Water Resources (PDF)](https://pubs.usgs.gov/tm/04/a03/tm4a3.pdf)*, Helsel, et al., 2020 [https://doi.org/10.3133/tm4A3](https://doi.org/10.3133/tm4A3)
- * **Recommended**: *Probability and Statistics for Engineering and the Sciences*, Devore, J.L.
+ * **Recommended**: *Ask Instructor*, Various texts for different parts of the course
  * **Additional Course Materials** are available on the [UW Canvas site](https://canvas.uw.edu/) (UW NetID login required)
 
 
@@ -72,30 +70,32 @@ The UW eScience institute offers [data science office hours](https://escience.wa
 
 ### Computing Resources
 
-For lab activities and assignments, we will be using a [JupyterHub](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html) computing environment, and programming with [python](https://spestana.github.io/data-analysis/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
+For some lab activities and assignments, we will be using a [JupyterHub](https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html) computing environment, and programming with [python](https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/a-learning-python.html). 
 
 If you need access to a laptop computer (such as if yours breaks) you may check one out from the [Student Technology Loan Program](https://stlp.uw.edu/). Please contact me if you need help accessing a computer reliably.
 
 
 ### Lectures
 
-The first half of each class period is reserved for lectures and discussions. We will be using Zoom for these live lectures, and to record lectures for later viewing. Lectures will be recorded and made available afterwards. Lecture slides will be available on Canvas, along with any additional files for reading.
+The first hour and a half, twice a week, is reserved for lectures and discussions. We will be meeting in person but also using Zoom to live broadcast these for anyone who feels ill or cannot make it to class. Lectures will be recorded and made available afterwards. Lecture slides will be available on Canvas, along with any additional files for reading.
 
 
 ### Labs
 
-Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
+On Tuesdays, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (practice problems, jupyter notebooks and data files) can be downloaded directly from the from class website or from canvas. ([GitHub Option](https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
 
-We will use classroom space, Zoom breakout rooms, and Slack to work in small groups on Lab excercises. As we learn what works and what doesn't in our learning environment, we'll adapt and modify lab logistics. Contact the instructor or TA to be added to the Slack workspace.
+We will use classroom space and Slack to work in small groups on Lab excercises. Contact the instructor or TA to be added to the Slack workspace.
 
 
 ### Homework Assignments
 
-Homework assignments will be given out on Tuesdays at the beginning of class, and will be **due the following week on Tuesday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
+Homework assignments will be given out on Tuesdays at the beginning of class, and will be **due the following week on Thursday at the beginning of class (10:00 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
 
 You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work. 
 
-Make sure that your name and the assignment number are at the top of your notebook file in markdown text. Your answers should be clearly labeled and written in markdown cells of the notebook.
+For hand-done homework calculations, please scan or take a picture of your work and upload to canvas.
+
+For homework using Jupyter notebooks, make sure that your name and the assignment number are at the top of your notebook file in markdown text. Your answers should be clearly labeled and written in markdown cells of the notebook.
 
 Submit your completed homework assignments via Canvas by uploading:
 * Your original .ipynb jupyter notebook file(s)
@@ -103,28 +103,25 @@ Submit your completed homework assignments via Canvas by uploading:
 * A PDF copy of the jupyter notebook file(s)
   * To save your notebook as a PDF, go to *File* > *Export Notebook As...* > *Export Notebook to PDF*, this will download a PDF file copy of your notebook to your personal computer which you can upload to Canvas
 
-Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Monday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
+Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at midnight (Pacific Time). Homework handed in late will be deducted 10% per weekday (i.e. a late assignment that would receive a 10 if handed in on time on Thursday will be assigned a grade of 9 if handed in on Friday and 8 if handed in on Monday).   Late homework assignments will not be accepted after midnight (Pacific Time) on the Monday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
 
 Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) by the Tuesday after the assignment was turned in.
 
 
-### Final Exam (for CEE 465)
+### Final Project
 
-The final exam will be take-home, and will be assigned on Monday, December 6th, giving you a full week to complete it. The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day of the scheduled final exam: **Monday, December 13, 5:00 pm (Pacific Time)**.
+Each person will be responsible for creating a 3 to 5-minute video explaining one of the concepts we learned in class.  We will view these videos during the regularly scheduled final exam time.
 
-### Final Project (for CEWA 565)
-
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/2**, **12/7** and **12/9**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 13, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
-* **Class Attendance and Participation: 5%**
+* **Exams (three at 15% each): 45%**
   * Participation includes discussions in class, on Slack, and providing feedback on student presentations
   * *If you plan on attending class asynchronously by watching the recorded lectures, please let me know.*
-* **Homework assignments: 70%**
+* **Homework assignments: 40%**
   * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.
-* **Final Project / Final Exam: 25%**
-  * See the [CEWA 565 course project page](/overview/b-project.html) for grading rubric.
+* **Final Project: 15%**
+  * See the [CEE 348 course project page](/overview/b-project.html) for grading rubric.
 
 
 ## Schedule
@@ -137,18 +134,17 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **0** | 9/30 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
-| **1** | 10/5 <br /> 10/7 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | |
-| **2** | 10/12 <br /> 10/14 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/12: **HW1 Due** |
-| **3** | 10/19 <br /> 10/21 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/19: **HW2 Due** |
-| **4** | 10/26 <br /> 10/28 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/26: **HW3 Due** |
-| **5** | 11/2 <br /> 11/4 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/2: **HW4 Due** |
-| **6** | 11/9 <br /> (**11/11 is a holiday**) | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/9: **HW5 Due** |
-| **7** | 11/16 <br /> 11/18 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/16: **HW6 Due** |
-| **8** | 11/23 <br /> (**11/25 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  11/23: **HW7 Due**  |
-| **9** | 11/30 <br /> 12/2 | <br /> Data Analysis Applications: Student Presentations | Project Work | 11/30: **HW8 Due** <br /> 12/2: **Presentations** |
-| **10** | 12/7 <br /> 12/9 | Data Analysis Applications: Student Presentations | Project Work | 12/7: **Presentations** <br /> 12/9: **Presentations** |
-| **Finals Week** | 12/13 |  |  | 12/13: **CEWA 565 - Final Project Report Due** <br /> 12/13: **CEE 465 - Final Exam Due** |
+| **1** | 3/29 <br /> 3/31 | Key concepts in environmental flows | Lab 1 | |
+| **2** | 4/5 <br /> 4/7 | Atmospheric structure and thermodynamics | Lab 2 | 4/7: **HW1 Due** |
+| **3** | 4/12 <br /> 4/14 | Mixing and Dispersion in the Atmosphere | Lab 3| 4/14: **HW2 Due** |
+| **4** | 4/19 <br /> 4/21 | Hydrology | Lab 4 | 4/19: **Exam 1** <br /> 4/21: **HW3 Due** |
+| **5** | 4/26 <br /> 4/28 | Hydrology| Lab 5 | 4/28: **HW4 Due** |
+| **6** | 5/3 <br /> 5/5  | Flooding and Statistics| Lab 6  | 5/5: **HW5 Due** |
+| **7** | 5/10 <br /> 5/12 |  Groundwater Flow | Lab 7 | 5/10: **Exam 2** <br />5/12: **HW6 Due** |
+| **8** | 5/17 <br /> 5/19 | Streams, Rivers, and Channels  | Lab 8 |  5/19: **HW7 Due**  |
+| **9** | 5/24 <br /> 5/26 | <br /> Mixing and Dispersion in Rivers | Lab 9 | 5/26 **HW8 Due**  |
+| **10** | 5/31 <br /> 6/2 | Review (Estuaries if time) | Project Work | 6/2: **Exam 3** <br /> 12/9: **Presentations** |
+| **Finals Week** | 6/6 |  |  | 6/6: **CEE 348 - Final Project Presentations** <br /> |
 
 ## Additional Information
 
