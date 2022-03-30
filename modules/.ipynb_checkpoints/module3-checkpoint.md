@@ -1,4 +1,4 @@
-# 3) Analysis of Variance
+# 3) Mixing and dispersion in the atmosphere
 
 ```note
 ## Lab 3: Analysis of Variance
