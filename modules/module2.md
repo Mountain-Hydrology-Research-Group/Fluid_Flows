@@ -1,7 +1,7 @@
 # 2) Atmospheric Structure and Thermodynamics
 
 **Recommended Reading**
-For this week, we recommend reading Ch 2 and Ch 3 in Shuttleworth's "Terrestrial Hydrometerology" text.
+For this week, we recommend reading Ch 2 and Ch 3 in Shuttleworth's [Terrestrial Hydrometerology](https://bcs.wiley.com/he-bcs/Books?action=index&bcsId=6961&itemId=0470659378).
 
 ```note
 ## Lab 2: Plotting balloon soundings
@@ -24,13 +24,15 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ### Problem 1
 
-On a cold snowy morning the air temperature and dew point of the outside air are both -10\circC. If this air is brought indoors and warmed to 20&deg;C with no change in the vapor content, what is the relative humidity of the air inside the home?
+On a cold snowy morning the air temperature and dew point of the outside air are both -10&deg;C. If this air is brought indoors and warmed to 20&deg;C with no change in the vapor content, what is the relative humidity of the air inside the home?
 
 (Note:   You may solve this using a Jupyter notebook following examples in the lab, or you may use a pen/pencil and paper.)
 
 ### Problem 2
 
 Three cities have the following temperature (T) and dew point (Td) during a March afternoon:
+| city | temperature | dew point temperature |
+| --- | --- |  --- |
 | San Diego, CA | T = 20&deg;C | Td = 14&deg;C |
 | Spokane, WA | T = 14&deg;C | Td = -2&deg;C |
 | Denver, CO | T= 24&deg;C | Td= -10&deg;C |
@@ -47,7 +49,7 @@ Which city has
 ### Problem 3
 The figure below shows environmental temperature data on the west side of a conical mountain.  Suppose the wind is blowing from the west and a parcel of surface air with a temperature of 10&deg;C and a dew point of 2&deg;C begins to rise upward along the western (windward) side of the hill.
 
-! [mountain](data/PS2_Hill.PNG)
+![mountain](data/PS2_Hill.PNG)
 * (a) Calculate the environmental lapse rate
 * (b) What type of atmospheric stability does the sounding indicate?
 * (c) What is the relative humidity of the air parcel at 0 m before rising?
@@ -58,7 +60,7 @@ The figure below shows environmental temperature data on the west side of a coni
 
 
 ### Problem 4
-! [surface pressure](data/SurfacePressure.png)
+![surface pressure](data/SurfacePressure.png)
 The sea-level chart (above) is drawn for flows in the Northern Hemisphere.
 * What are the magnitudes and directions (sketch this) of the geostrophic velocities at points A and B?
 
