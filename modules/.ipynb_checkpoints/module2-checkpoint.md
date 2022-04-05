@@ -47,7 +47,7 @@ Which city has
 (Note:  You may solve this using a Jupyter notebook following examples in the lab, or you may use a pen/pencil and paper.)
 
 
-### Problem 3
+### Problem 3 (option 1: choose this if you dislike python)
 The figure below shows environmental temperature data on the west side of a conical mountain.  Suppose the wind is blowing from the west and a parcel of surface air with a temperature of 10&deg;C and a dew point of 2&deg;C begins to rise upward along the western (windward) side of the hill.
 
 ![mountain](data/PS2_Hill.PNG)
@@ -60,6 +60,16 @@ The figure below shows environmental temperature data on the west side of a coni
 * (f) What is the air temperature and dew point of the rising air inside the cloud at an elevation of 3000m?
 * (g) At an altitude of 3000m, how does the air temperature inside the cloud compare with the temperature outside the cloud? What type of atmospheric stability does this suggest?
 
+### Problem 3 (option 2: choose this if you want to use python)
+Using the jupyterhub, and building off what we learned in lab 2-3, look at the environmental temperature and relative humidity data from the sounding launched in Gothic, Colorado on January 6, 2022. 
+
+* (a) Calculate the environmental lapse rate
+* (b) Assuming the lowest level of the sounding represents the surface temperature and relative humidity, plot the temperature a dry air parcel would have if it were lifted adibatically from that point
+* (c) What is the dew point temperature of the parcel at the surface?
+* (d) Assuming that the dew point temperature decreases with elevationn at a rate of 2 K/km (2&deg;C/km), at what elevation would estimate that a cloud would form?  (Hint:  Plot this line on your graph from Td at the surface with the dry adiabat plotted from T at the surface.)
+* (e) How does this height compare with the base height where a cloud seems to exist in this sounding?
+* (f) How do both of these compare with the base height as estimated from the plot from the ceilometer in the lab?
+* (g) At a height of 5000 m, how does the air temperature estimated from your rising parcel of air compare to the observed air temperature?  What type of atmospheric stability does this suggest?
 
 ### Problem 4
 The sea-level chart (below) is drawn for flows in the Northern Hemisphere.
