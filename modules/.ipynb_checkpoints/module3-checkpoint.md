@@ -12,7 +12,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
   * Data: [Sounding Data Jan 10](data/2022-01-10_radiosonde.csv)
   * Data: [Sounding Data Dec 26](data/2021-12-26_radiosonde.csv)
   * Graphic: [Smokestack_gaussian_plume.png](data/Smokestack_gaussian_plume.png)
-  * Graphic: [Plume_reflection.png](data/Plume_reflection.png
+  * Graphic: [Plume_reflection.png](data/Plume_reflection.png)
 
 ```
 
@@ -36,7 +36,9 @@ You are asked to assess the air quality in two cities A and B. The temperature p
 * What is the mixing height (H) over each city?
 * Based on the observed temperature profiles, estimate the stability class (A-F) for each city.
 * Determine the vertically averaged velocity between z=0 and z=H. You are told that the wind speed 10 𝑚 above the surface is 𝑢=4 𝑚/𝑠. Note: the velocity profile follows the power law and the vertical average is given by:
-$$ U_{AVG} = \frac{1}{H}\int_H^0 u(z)  $$
+
+
+<img src="https://render.githubusercontent.com/render/math?math=U_{AVG} = \frac{1}{H}\int_0^H u(z)dz">
 
 * What is the Dilution Rate (or ventilation coefficient) for each city? 
 * Which city is likely to have better air quality on this day?
@@ -53,7 +55,7 @@ Consider an area-source box model for air pollution above a peninsula of land (s
 
 W = 90 km, L = 20 km, H=20 m, u = 0.5 m/s
 
-*  Find the average rate of CO emissions during this two-hour period ($g CO/s$ per $m^2$ of land).
+*  Find the average rate of CO emissions during this two-hour period (g CO/s per m^2 of land).
 * Estimate the concentration of CO at 6 pm if there was no CO in the air at 4 pm.  Assume that CO is conservative (does not decay or change) and that there is instantaneous and complete mixing in the box.
 * Assume the windspeed is 0, and use the basic equation (below) to derive a relationship between CO and time and use it to find the CO over the peninsula at 6 pm.
 
