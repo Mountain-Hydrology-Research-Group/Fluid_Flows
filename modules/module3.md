@@ -1,13 +1,18 @@
 # 3) Mixing and dispersion in the atmosphere
 
 ```note
-## Lab 3: Analysis of Variance
+## Lab 3: Gaussian Mixing and Smokestack plumes
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 3-1: ANOVA](lab3/lab3-1.ipynb)
-  * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
-
+* [Lab 3-1: Gaussian Smokestack](lab3/lab3-1.ipynb)
+* [Lab 3-2: Wind Profiles](lab3/lab3-2.ipynb)
+* [Lab 3-3: Stability Classes](lab3/lab3-3.ipynb)
+* [Lab 3-4: Solve an Air Quality Problem](lab3/lab3-4.ipynb)
+  * Data: [Sounding Data Jan 10](data/2022-01-10_radiosonde.csv)
+  * Data: [Sounding Data Dec 26](data/2021-12-26_radiosonde.csv)
+  * Graphic: [Smokestack_gaussian_plume.png](data/Smokestack_gaussian_plume.png)
+  * Graphic: [Plume_reflection.png](data/Plume_reflection.png
 
 ```
 
@@ -15,40 +20,41 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ### Problem 1
 
-Download and work through the [non-parametric tests](lab3/non-parametric-tests.ipynb) notebook. Read the documentation and source code for the [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html) and [scipy.stats.mannwhitneyu](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html) functions.
+On an overcast day with class C stability, the wind velocity at 10 m is 4 m/s.  The emission rate of NO is 60 g/s from a stack having an effective height of 100 m.  Assume rural conditions.  (You will want to use the lab python notebooks to solve this problem.)
 
-Then answer the following questions:
-
-**A.** What assumptions about our data and/or the hypothesis test are each of these two functions (ranksums and mannwhitneyu) making? 
-
-**B.** Are there any additional inputs/options we need to specify for either or both functions to make sure that they duplicate our results from the non-parametric tests notebook?
-
-**C.** Revisit Homework 2 part D, using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2017.xlsx) to try and detect a change in streamflow around 1977. Perform the rank-sum test from Homework 2 part D again using the fuction(s) and/or options you identified here in part B. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
+* Estimate the center-line, ground-level concentration 18 km downwind from the stack, in micrograms per cubic meter. 
+* Estimate the ground-level concentration 18 km downwind and 800 m from the stack center line, in micrograms per cubic meter.
+* Calculate and plot the centerline ground level concentration versus distance from the stack (C(x)). 
+* From the plot, estimate the magnitude and location of the peak ground concentration.
+* How would the location and magnitude of the peak ground concentration change if the stack height was 150 𝑚? (Plot on the same axes)
 
 
 ### Problem 2
 
-Download the [HJ Andrews Peak Flow data](data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx).
+You are asked to assess the air quality in two cities A and B. The temperature profiles over each of the cities is shown below.  Note that a parcel rising from the surface will start with the surface temperature 25 &deg;C. Assume dry air.
 
-For this problem, consider only differences between watershed 1 (WS1) and watershed 2 (WS2). These two watersheds are adjacent to each other in the [HJ Andrews Experimental Forest](https://andrewsforest.oregonstate.edu/). We want to test if there was a change in streamflow due to the forest within WS1 being completely clearcut (starting late 1962 and completed in 1966). Because the two watersheds are adjacent, we can expect that they experience the same storms leading to peak runoff (so we won't be considering any differences due to different precipitation amounts or timing). 
+* What is the mixing height (H) over each city?
+* Based on the observed temperature profiles, estimate the stability class (A-F) for each city.
+* Determine the vertically averaged velocity between z=0 and z=H. You are told that the wind speed 10 𝑚 above the surface is 𝑢=4 𝑚/𝑠. Note: the velocity profile follows the power law and the vertical average is given by:
+$$ U_{AVG} = \frac{1}{H}\int_H^0 u(z)  $$
 
-Here we want to test whether the difference in peak flows between WS1 and WS2 is statistically different for four different time periods:
+* What is the Dilution Rate (or ventilation coefficient) for each city? 
+* Which city is likely to have better air quality on this day?
+* If both cities are 15 𝑘𝑚 across, what is the residence time over each?
 
-| Time Period | Years | `Index12` "treatment" label | Notes |
-| ----------- | --------------- | --------------- | --------------- |
-| control period | 1953-1962 | 1 | before any clearcutting in WS1 |
-| active clearcutting | 1963-1966 | 2 | during clearcutting of WS1 |
-| 0-15 years after clearcutting | 1967-1981 | 3 | WS1 forest starts to recover |
-| >15 years after clearcutting | 1982-2015 | 4 | WS1 forest recovering further |
+![CityACityB](data/CityACityB.png)
 
-We want to know whether the four periods are statistically different from each other, and if so, which one or ones are statistically different from which other ones.
 
- **A.** First, plot the timeseries of the streamflow measurements as a function of water year for both watershed 1 and watershed 2 on the same graph. Use vertical dashed lines ([axvline in matplotlib](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.axvline.html)) to indicate the different periods (put a vertical dashed line in 1963, in 1967, and in 1982).
- 
- **B.** It has been suggested that paired data such as this can be made to be closer to normally distributed by taking the log of each value before subtracting. Create two datasets: `Q12 = streamflow1 - streamflow2` and `Qlog12 = log(streamflow1)- log(streamflow2)` and make graphs to demonstrate which is closer to normally distributed. Given that we want to use an ANOVA analysis, explain why is it important to do a transformation to get the data closer to normally distributed?
- 
- **C.** State the null and the alternative hypothesis for the question of whether the four periods are statistically different from each other. State the type I error (alpha value) that you are willing to accept.
- 
- **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and outputting.
- 
- 
+### Problem 3
+
+Consider an area-source box model for air pollution above a peninsula of land (see figure below).  The length of the box is 20 km, its width is 90 km, and a radiation inversion restricts mixing to 20 m.  Wind is blowing clean air into the long dimension of the box at 0.5 m/s.  Between 4 and 6 pm there are 300,000 vehicles on the road, each being driven 45 km, and each emitting 4 g/km of CO. 
+
+![BoxModel](data/BoxModel.png)
+
+W = 90 km, L = 20 km, H=20 m, u = 0.5 m/s
+
+*  Find the average rate of CO emissions during this two-hour period ($g CO/s$ per $m^2$ of land).
+* Estimate the concentration of CO at 6 pm if there was no CO in the air at 4 pm.  Assume that CO is conservative (does not decay or change) and that there is instantaneous and complete mixing in the box.
+* Assume the windspeed is 0, and use the basic equation (below) to derive a relationship between CO and time and use it to find the CO over the peninsula at 6 pm.
+
+![BoxModeleqn](data/Boxmodel_eqn.png)
