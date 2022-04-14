@@ -3,7 +3,7 @@
 ```note
 ## Lab 3: Gaussian Mixing and Smokestack plumes
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/Fluid_Flows/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
 * [Lab 3-1: Gaussian Smokestack](lab3/lab3-1.ipynb)
 * [Lab 3-2: Wind Profiles](lab3/lab3-2.ipynb)
@@ -13,6 +13,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
   * Data: [Sounding Data Dec 26](data/2021-12-26_radiosonde.csv)
   * Graphic: [Smokestack_gaussian_plume.png](data/Smokestack_gaussian_plume.png)
   * Graphic: [Plume_reflection.png](data/Plume_reflection.png)
+  * Graphic: [Stability_classes.png](data/stability_table.png)
 
 ```
 

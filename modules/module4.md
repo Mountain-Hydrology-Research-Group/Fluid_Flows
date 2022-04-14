@@ -2,57 +2,44 @@
 
 
 ```note
-## Lab 4: Regression and Trend Tests
+## Lab 4: Preparing for watershed delineation
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+We will be delineating Seattle's Cedar River Watershed as homework this week, following pre-recorded tutorials. GIS is a very marketable skill, and consultants are often asked to delineate watersheds. First, you will need to decide which software you want to use.
 
-* Data: Annual peak snow water equivalent as measured at two snow-pillow sites [pillows_example.csv](data/pillows_example.csv) ([What is Snow Water Equivalent?](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833))
-* [Lab 4-1: Linear Regression](lab4/lab4-1.ipynb)
-* [Lab 4-2: Quantile Regression](lab4/lab4-2.ipynb)
-* [Lab 4-3: Confidence Intervals](lab4/lab4-3.ipynb)
-* [Lab 4-4: Mann-Kendall Trend Tests](lab4/lab4-4.ipynb)
+Arc-GIS:  
+* Arc-GIS is proprietary software, but the UW has permission to use it.  You can access Arc-GIS in the CEE computer lab, or through [remote login](https://www.ce.washington.edu/current/computing/computers-available-remote-desktop) to the CEE computers.  If you have a PC, you may also install Arc-GIS on your laptop by following the instructions at this [link](https://sites.uw.edu/arcgis/software/arcgis-desktop/arcgis-pro/).  Note that this also requires installing VPN software to connect to the UW network securely, which enables the licensing through UW.   
+* For further background on Arc-GIS, I recommend class material from David Tarboton from Utah State University and David Maidment from U. Texas Austin, available [here]( http://hydrology.usu.edu/dtarb/giswr/2018/).  For watershed delineation, check out exercise 4 from class 11, see minute 10 of this [video](https://www.youtube.com/watch?v=hE2hBMRJq3U&feature=youtu.be).
+
+qGIS: 
+* qGIS is open source software and can be installed locally without license issues.  If you want to use a Mac, this is your only choice.  You can download and install [here](https://qgis.org/en/site/forusers/download.html).
+* For further background, the authors of QGIS for Hydrological Applications, Kurt Menke and Hans van der Kwast, put on a special QGIS Hydro Webinar Series in spring 2020, including webinars on [how to georeference a physical map](https://www.youtube.com/watch?v=hPLqy-NBgu8), [how to get tables and coordinates into qGIS and interpolate to rasters](https://www.youtube.com/watch?v=84cq3CmBwck), [spatial analysis](https://www.youtube.com/watch?v=XFFAS-UctBs), and [stream and catchment delineation](https://www.youtube.com/watch?v=2Ub0c7Ss-T4).
 
 ```
 
 
 ## Homework 4
 
-### Problem 1: Linear and Quantile Regression
+### Problem 1: Delineate the Cedar River Watershed
 
-Download the [streamflow records for the Columbia River](data/dalles_flow.csv)
+Either install GIS software locally or go to the CEE computer lab (see notes above).
  
-USGS gaged streamflow records for the Columbia River at The Dalles, OR began in water year 1879 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1933 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1878:
+**A.** Go to the class [canvas page](https://canvas.uw.edu) and download the files relevant to your chosen software.  
 
- **A.** Isolate the period of relevant overlap (1879-1933) and plot the timeseries. Create a linear regression model for annual flow using peak flow as an explanatory variable.
- 
- **B.** How much of the variance is explained by the resulting model?
- 
- **C.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1878, and plot them as a timeseries (estimates each year) with the central tendency (the central tendency is the prediction from the regression model).
- 
- **D.** Now create a non-parametric, quantile-based regression model using the same data.
- 
- **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1933), and plot the model predictions for the 1858-1878 data for the two different models. Is there a substantial difference between the two model formulations? Discuss any differences that you observe.
+**B.** Delineate the Cedar River Watershed above Cedar Falls and calculate its area.  Follow the video directions for [ArcGIS](https://youtu.be/MR6_IenN9vI) or for qGIS in [Part 1](https://youtu.be/u9tiOomhgIg) and [Part 2](https://youtu.be/IXkFH0elFZk).
+
+**C.** When completed, take a screen shot of your delineated watershed that shows that it's on your computer to submit with your homework along with the area you estimated.
  
 
 
-### Problem 2: Trend Analysis
+### Problem 2: Monthly Water Balance in the Cedar River Watershed 
 
-Download the [cascades_swe.xlsx data file](data/cascades_swe.xlsx).
+Download the [Cedar_average_monthly_waterbalance.xlsx data file](data/Cedar_average_monthly_waterbalance.xlsx).
 
-The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
+The file contains long-term data relevant to the watershed that is Seattle's primary water supply.  Note that the temperature and precipitation values are climatological averages from 1898 to 2016 at Cedar Lake, Washington.  The streamflow is monthly average values from 2001 to 2019 at USGS gauge 12116400 (which is listed as having an area upstream of 217 km^2, which is slightly but not very different from what you should have calculated for Part 1, but use the 217 value here).  The ET values are estimated from monthly graphs produced by NOAA, available [here](http://www.cpc.ncep.noaa.gov/soilmst/e.shtml).  ET values from pan evaporation estimates are also included in the file for your reference, but you do not need to use then in your calculations.   Remember that the Cedar River has the Chester Morse Reservoir above this location and also, as we discussed in lecture, some snow.  The total precipitation values represent rain and snow together, but only at one location in the watershed. 
 
- **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: Trend = B1 ± t*sB1
+ **A.** Convert all the units to mm/month and plot the component parts of the basin water balance each month all in the same units (mm/month). 
 
+ **B.** Determine the residual storage term each month (where storage is the sum of water in minus water out).  Calculate the total residual storage over the year.
 
- **B.** Is the trend statistically significant with 95% confidence? Can we reject the null hypothesis that the trend is equal to zero?
+ **C.** Discuss what you think the storage term means physically and where you think there might be errors in the water balance terms.
 
- **C.** Repeat this analysis (parts A and B) for just the more recent period, 1976-2003. Discuss any similarities or differences in the results of the two time periods.
-
-
-### Problem 3: The best graphics
- 
-One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll share some of these favorite figures in class.
-
-### Problem 4: Project (CEWA 565 only)
-
-Please give a brief update of where you are with your project.  At this poing you should have acquired data that you can plot.  Include one example plot of the data in this homework.  Let us know if you have any questions or concerns at this point.
