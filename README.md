@@ -1,4 +1,4 @@
-# Fluid Flows in the Enviornment
+# Fluid Flows in the Environment
 
 **CEE 348**
 
