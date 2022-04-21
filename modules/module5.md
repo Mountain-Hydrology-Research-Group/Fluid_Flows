@@ -1,45 +1,35 @@
-# 5) Flooding and Statistics
+# 5) Hydrology, Flooding and Statistics
 
-Data visualization (Note, this may be helpful for projects but is not required now -- we will return to these labs later in the quarter):
-- [Interactive Plots](lab5/interactive-plots.ipynb) with [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat)
-- [Warming Stripes Figure](lab5/warming-stripes.ipynb)
+You may be interested in the history of the Cedar River Watershed:
+- [History from Seattle Public Utilities](https://www.seattle.gov/utilities/protecting-our-environment/our-water-sources/cedar-river-watershed/history)
+- [History Link Article about Managing the Watershed](https://historylink.org/File/11004)
 
 ```note
-## Lab 5: Multiple Linear Regression & Autocorrelation
+## Lab 5: Watershed Hydrology and Flooding
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 5-1: Multiple Linear Regression](lab5/lab5-1.ipynb) with [pillows_example.csv](data/pillows_example.csv)
-* [Lab 5-2: Autocorrelation](lab5/lab5-2.ipynb) with [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat)
+* [Lab 5-2: Flood Frequency and Statistics (lab5/lab5-3.ipynb) with [Skykomish Peak Flows](data/'Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx')
 
 ```
 
 ## Homework 5
 
-### Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
+### Problem 1: Average precipitation across a watershed
+Choose **one** of the following methods for precipitation distribution.
 
-In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the [cascades_swe.xlsx](data/cascades_swe.xlsx) dataset for this problem.
+**OPTION 1:**  In the map below and linked [here](data/Theissen_homework_graphic.png), the recorded rainfall in inches is provided at six gauges in and around a watershed.  Compute the mean areal rainfall over the watershed using the Theissen method (print this page, use a ruler, approximate using the squares, and scan to turn in with your homework).  You will need to approximate on the number of squares in cases with fractions of squares, and any reasonable approximation is fine (just show your work).
 
-**A.** Begin by making scatterplots of each of these variables vs. all the other variables. Describe any visual patterns you see between each pair of variables.  
+![map](data/Theissen_homework_graphic.png)
 
-**B.** Calculate the correlation (R) between April 1 SWE and the three meteorological variables (precipitation, maximum temperature, and minimum temperature). Then also calculate R between each unique combination of the meteorological variables. Which meteorological variables seem the most correlated with each other?  How might it cause problems if we use both of these in a multi-linear regression?
- 
-**C.** Calculate the autocorrelation in precipitation, maximum temperature, and minimum temperature over the timeseries. Can we consider each of these values to be an independent sample? Or do some of them depend on the prior year’s sample?
+**OPTION 2:**  If you are able to use QGIS and are interested in learning more GIS-based techniques, watch the [QGISHydro Webinar 2](https://www.youtube.com/watch?v=84cq3CmBwck&t=832s). Use what you learn to import the [Cedar_area_precip_inches.xlsx](data/Cedar_area_precip_inches.xlsx) file into your delineated Cedar River watershed file.  The lat and lon are in NAD83 Geographic (same as our gauge point from before).  Plot the AnnualP(mm) values (the right-most column in the excel sheet) on your QGIS map and interpolate in between them.   Note that there are many different ways to interpolate on a map; you may use the method recommended by the video.  Include a screenshot, describe how your chosen interpolation method works, and describe the pros and cons of this method vs. using Theissen polynomials.
 
-```tip
-In part **C**, we can test for autocorrelation at different lags, but not for any lag longer than a quarter of the length of the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data series.
-```
+### Problem 2: Peak Flows and Flood Risk in the Cedar River Watershed
 
- **D.** Fit a multiple linear regression model to the data, using only two of the three meteorological variables (precipitation and maximum temperature) to predict April 1 SWE. Report the trend in each meteorological variable. Estimate the overall trend in SWE, and the trend due to each meteorological variable alone. How much of the overall trend is due to the effect of a trend in the maximum temperature?  (Note that if we were doing this for research, it would be good to also explore using only minimum temperature, or using the mean daily temperature calculated as (Tmax + Tmin)/2 -- however, for simplicity, we will only look a maximum temperature in this problem.)
- 
- ```tip
-In part **D** we want to quantify how much a change in each variable accounts for a change in SWE. We start with making a multiple linear regression model, such as one which looks like:
+Use the annual peak flow values (in cubic feet per second, cfs) for the inflows to the Cedar River above the Chester Morse Reservoir available [here](data/Cedar_PeakFlows_aboveReservoir_fixed_doubles.xls).  The original USGS data can be found [here](https://nwis.waterdata.usgs.gov/wa/nwis/peak/?site_no=12115000&agency_cd=USGS).  You will see one value for each water year.  Because a water year starts on October 1st of the prior year, you will sometimes seem two values that fall on the same calendar year.  Some years do not have a peak flow listed due to gauging issues. These have been removed from the list.  Rank the data from high to low.  Use Weibull’s plotting position Pr (X>=x): Pr = m/(n+1), where m in the rank of the discharge (with 1 indicating high flow) and n is your total number of observations.  This gives you the exceedance probability.  Use this to calculate the return period.
 
-SWE = B0 + B1*(precip) + B2*(t_max)
+Following the example in lab 5-2, plot the data in log-probability space and estimate a best-fit-straight line through the data (you may do this by eye) to estimate what the 100-year flood is likely to be. Compare with the Log-Pearson III formulas.  Make sure to upload both your notebeook (.ipynb) and a .pdf version to canvas when you submit your homework.
 
-We then have values for all regression parameters (each B value). Take the derivative of both sides with respect to time. Our regression parameter values are coefficients in this new equation.
+### Problem 3: Planning for final project video
 
-dSWE/dt = B1*d(precip)/dt + B2*d(t_max)/dt
-
-Then to find how much the trend in SWE is accounted for by the trend in precipitation we compute B1*d(precip)/dt, where d(precip)/dt in the slope of the trend in precipitation.
-```
+Write 1-2 paragraphs of what you plan to do for your final project video.  What will you cover?  How many minutes will each sub-topic take?  How will you present things visually?  Feel free to include any sketches and diagrams and any questions you have at this point.  Note that lecture notes for future class topics are now available in Canvas – also feel free to reach out to the professor or TA.  This write-up will be peer reviewed as part of the next homework.  Make sure that you have an electronic copy of your write-up that you will be able to post in a discussion forum on either Canvas or Slack for your classmates to access.

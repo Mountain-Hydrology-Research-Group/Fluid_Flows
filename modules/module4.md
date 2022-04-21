@@ -33,7 +33,7 @@ Either install GIS software locally or go to the CEE computer lab (see notes abo
 
 ### Problem 2: Monthly Water Balance in the Cedar River Watershed 
 
-Download the [Cedar_average_monthly_waterbalance.xlsx data file](data/Cedar_average_monthly_waterbalance.xlsx).
+Download the [Cedar_average_monthly_waterbalance.xlsx](data/Cedar_average_monthly_waterbalance.xlsx) data file.
 
 The file contains long-term data relevant to the watershed that is Seattle's primary water supply.  Note that the temperature and precipitation values are climatological averages from 1898 to 2016 at Cedar Lake, Washington.  The streamflow is monthly average values from 2001 to 2019 at USGS gauge 12116400 (which is listed as having an area upstream of 217 km^2, which is slightly but not very different from what you should have calculated for Part 1, but use the 217 value here).  The ET values are estimated from monthly graphs produced by NOAA, available [here](http://www.cpc.ncep.noaa.gov/soilmst/e.shtml).  ET values from pan evaporation estimates are also included in the file for your reference, but you do not need to use then in your calculations.   Remember that the Cedar River has the Chester Morse Reservoir above this location and also, as we discussed in lecture, some snow.  The total precipitation values represent rain and snow together, but only at one location in the watershed. 
 
