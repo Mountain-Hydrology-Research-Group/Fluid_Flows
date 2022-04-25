@@ -9,13 +9,15 @@ You may be interested in the history of the Cedar River Watershed:
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 5-2: Flood Frequency and Statistics (lab5/lab5-3.ipynb) with [Skykomish Peak Flows](data/'Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx')
+* [Lab 5-1: Water Balance (lab5/lab5-1.ipynb) with [Cedar Water Balance](data/'Cedar_average_monthly_waterbalance.csv')
+**Note**  Lab 5-2 is still under construction, we will do this next week.
+* [Lab 5-2: Flood Frequency and Statistics (lab5/lab5-2.ipynb) with [Skykomish Peak Flows](data/'Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx')
 
 ```
 
 ## Homework 5
 
-### Problem 1: Average precipitation across a watershed
+### Problem 1: Average precipitation across a watershed (4 pts)
 Choose **one** of the following methods for precipitation distribution.
 
 **OPTION 1:**  In the map below and linked [here](data/Theissen_homework_graphic.png), the recorded rainfall in inches is provided at six gauges in and around a watershed.  Compute the mean areal rainfall over the watershed using the Theissen method (print this page, use a ruler, approximate using the squares, and scan to turn in with your homework).  You will need to approximate on the number of squares in cases with fractions of squares, and any reasonable approximation is fine (just show your work).
@@ -24,12 +26,12 @@ Choose **one** of the following methods for precipitation distribution.
 
 **OPTION 2:**  If you are able to use QGIS and are interested in learning more GIS-based techniques, watch the [QGISHydro Webinar 2](https://www.youtube.com/watch?v=84cq3CmBwck&t=832s). Use what you learn to import the [Cedar_area_precip_inches.xlsx](data/Cedar_area_precip_inches.xlsx) file into your delineated Cedar River watershed file.  The lat and lon are in NAD83 Geographic (same as our gauge point from before).  Plot the AnnualP(mm) values (the right-most column in the excel sheet) on your QGIS map and interpolate in between them.   Note that there are many different ways to interpolate on a map; you may use the method recommended by the video.  Include a screenshot, describe how your chosen interpolation method works, and describe the pros and cons of this method vs. using Theissen polynomials.
 
-### Problem 2: Peak Flows and Flood Risk in the Cedar River Watershed
+### Problem 2: Peak Flows and Flood Risk in the Cedar River Watershed (4 pts)
 
 Use the annual peak flow values (in cubic feet per second, cfs) for the inflows to the Cedar River above the Chester Morse Reservoir available [here](data/Cedar_PeakFlows_aboveReservoir_fixed_doubles.xls).  The original USGS data can be found [here](https://nwis.waterdata.usgs.gov/wa/nwis/peak/?site_no=12115000&agency_cd=USGS).  You will see one value for each water year.  Because a water year starts on October 1st of the prior year, you will sometimes seem two values that fall on the same calendar year.  Some years do not have a peak flow listed due to gauging issues. These have been removed from the list.  Rank the data from high to low.  Use Weibull’s plotting position Pr (X>=x): Pr = m/(n+1), where m in the rank of the discharge (with 1 indicating high flow) and n is your total number of observations.  This gives you the exceedance probability.  Use this to calculate the return period.
 
 Following the example in lab 5-2, plot the data in log-probability space and estimate a best-fit-straight line through the data (you may do this by eye) to estimate what the 100-year flood is likely to be. Compare with the Log-Pearson III formulas.  Make sure to upload both your notebeook (.ipynb) and a .pdf version to canvas when you submit your homework.
 
-### Problem 3: Planning for final project video
+### Problem 3: Planning for final project video (2 pts)
 
 Write 1-2 paragraphs of what you plan to do for your final project video.  What will you cover?  How many minutes will each sub-topic take?  How will you present things visually?  Feel free to include any sketches and diagrams and any questions you have at this point.  Note that lecture notes for future class topics are now available in Canvas – also feel free to reach out to the professor or TA.  This write-up will be peer reviewed as part of the next homework.  Make sure that you have an electronic copy of your write-up that you will be able to post in a discussion forum on either Canvas or Slack for your classmates to access.
