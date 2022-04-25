@@ -9,9 +9,9 @@ You may be interested in the history of the Cedar River Watershed:
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 5-1: Water Balance](lab5/lab5-1.ipynb) with [Cedar Water Balance]('data/Cedar_average_monthly_waterbalance.csv')
+* [Lab 5-1: Water Balance](lab5/lab5-1.ipynb) with [Cedar Water Balance](data/Cedar_average_monthly_waterbalance.csv)
 
-* **Note**  Lab 5-2 is still under construction, we will do this next week. [Lab 5-2: Flood Frequency and Statistics](lab5/lab5-2.ipynb) with [Skykomish Peak Flows]('data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx')
+* **Note**  Lab 5-2 is still under construction, we will do this next week. [Lab 5-2: Flood Frequency and Statistics](lab5/lab5-2.ipynb) with [Skykomish Peak Flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
 
 ```
 
