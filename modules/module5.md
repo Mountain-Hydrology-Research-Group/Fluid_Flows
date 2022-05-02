@@ -11,7 +11,9 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 * [Lab 5-1: Water Balance](lab5/lab5-1.ipynb) with [Cedar Water Balance](data/Cedar_average_monthly_waterbalance.csv)
 
-* **Note**  Lab 5-2 is still under construction, we will do this next week. [Lab 5-2: Flood Frequency and Statistics](lab5/lab5-2.ipynb) with [Skykomish Peak Flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
+* [Lab 5-2: Flood Frequency and Statistics](lab5/lab5-2.ipynb) with [Skykomish Peak Flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) and with [Bulletin K Values](data/Bulletin17b_appendix3_K_skykomish.png) 
+
+* for Lab 5-2, you will also want to look at this lab on [Probability Distributions](lab5/probability-distributions.ipynb) to  better understand what is going on.
 
 ```
 
@@ -30,7 +32,7 @@ Choose **one** of the following methods for precipitation distribution.
 
 Use the annual peak flow values (in cubic feet per second, cfs) for the inflows to the Cedar River above the Chester Morse Reservoir available [here](data/Cedar_PeakFlows_aboveReservoir_fixed_doubles.xls).  The original USGS data can be found [here](https://nwis.waterdata.usgs.gov/wa/nwis/peak/?site_no=12115000&agency_cd=USGS).  You will see one value for each water year.  Because a water year starts on October 1st of the prior year, you will sometimes seem two values that fall on the same calendar year.  Some years do not have a peak flow listed due to gauging issues. These have been removed from the list.  Rank the data from high to low.  Use Weibull’s plotting position Pr (X>=x): Pr = m/(n+1), where m in the rank of the discharge (with 1 indicating high flow) and n is your total number of observations.  This gives you the exceedance probability.  Use this to calculate the return period.
 
-Following the example in lab 5-2, plot the data in log-probability space and estimate a best-fit-straight line through the data (you may do this by eye) to estimate what the 100-year flood is likely to be. Compare with the Log-Pearson III formulas.  Make sure to upload both your notebeook (.ipynb) and a .pdf version to canvas when you submit your homework.
+Following the example in lab 5-2, plot the data in log-probability space and estimate a best-fit-straight line through the data (you may do this by eye) to estimate what the 100-year flood is likely to be. Alternatively, you may iterate with the Weibull plotting to estimate.  Compare with the Log-Pearson III formulas.  Make sure to upload both your notebeook (.ipynb) and a .pdf version to canvas when you submit your homework.
 
 ### Problem 3: Planning for final project video (2 pts)
 
