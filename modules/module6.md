@@ -6,7 +6,7 @@
 
 * Lab 6-1:  Download the [Contaminants Worksheet](lab6/Contaminants_labworksheet.pdf)  We will also have printed copies available in the lab.  You will want to hand-draw sketches of contaminant transport.  The [Lab 6-2](lab6/lab6-2.ipynb) python notebook will help you answer question 5 on the worksheet.
 
-* [Lab 6-2: Modeling Groundwater Contaminents](lab6/lab6-2.ipynb)
+* [Lab 6-2: Modeling Groundwater Contaminants](lab6/lab6-2.ipynb)
 
 ```
 
