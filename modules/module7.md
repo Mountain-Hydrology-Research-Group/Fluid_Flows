@@ -1,73 +1,45 @@
 # 7) Streams, rivers, and channels
 
 ```note
-## Lab 7: Markov Models & Markov Chain Monte Carlo (MCMC)
+## Lab 7: Rating curves & Mixing and Dispersion in Rivers
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+Download the lab and data files to your computer. First you will need the lab worksheet [Mixing and Dilution Worksheet](lab7/CEE348_Spring_2022_Week9Lab.pdf)  This is will be part of Homework 8, but we want to start early.
 
-* [Lab 7-1: Markov Chains - Basic Examples](lab7/lab7-1.ipynb)
-  * data: [markov_random4.txt](data/markov_random4.txt)
-* [Lab 7-2: Markov Chain - ENSO Phases](lab7/lab7-2.ipynb)
-  * data: [ENSO_to2021.csv](data/ENSO_to2021.csv)
-* [Lab 7-3: MCMC Rating Curves](lab7/lab7-3.ipynb)
+* [Lab 7-1: Rating Curves](lab7/lab7-1.ipynb)
   * data: [Lyell_h_Q_sorted.mat](data/Lyell_h_Q_sorted.mat)
+  * image: [LyellForkTuolumnegagesite](lab7/LyellFork_Tuolumne_flowcontrol.png)
+* [Lab 7-2: Mixing and Dispersion in Rivers](lab7/lab7-2.ipynb)
+  * data: [CEE348_dye_data_Lab7.xlsx](data/CEE348_dye_data_Lab7.xlsx)
 
 ```
+## Lab Problem:  To be solved together in workshop
+![Bottom shear stress](data/BottomShearStress.png)
+Hints:  For 1a, use the full conservation of momentum expression derived in class, before we simplified using uniform flow.  Remember that the friction slope, Sf = hL/L  (head loss divided by the length).  For 1b, use the expression you generated in 1a.
+          
+2.  Friction slope
+* a) Using the values from Problem 1, above, justify why it is common practice to use the water surface slope (Ssurface) as an approximation for the friction slope ($S_f$).  (Hint:  Use your equation from above with both values plugged in and see how different they are.)
 
+* b) What is the percent difference between the actual friction slope and the water surface slope?
 
-## Homework 7: 
+* c) When would you expect the difference between $S_{surface}$ and $S_f$ to be large?
 
+## Homework 7:
+
+### Problem 1:  Submit your write-up of the lab/workshop problem above
  
-### Problem 1: ENSO Phases
-Following Lab 7-1 and Lab 7-2, 
-A) Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2021 to create a lag-1 Markov model of the ENSO phase.
-where the observed Phases of ENSO are as follows:
+### Problem 2: The Fischer River
 
-1: warm (El Niño)
-2: neutral (ENSO neutral)
-3: cool, (La Niña)
+The Fischer River has a channel bed slope of $S=5×10^{-5}$, depth of H=1.5 m, width of 20 m and a bed consisting of 1 cm pebbles, with a Manning’s n of 0.03.  A contaminant is introduced at the bottom of the river in the center of the channel. In this problem, assume that the flow is uniform. Determine:
+* The shear velocity, u_*
+* The depth averaged velocity U using the Manning equation.
+* The distance downstream where the contaminant concentration can be assumed to be well-mixed in the vertical. As in the class example, assume well-mixed conditions occur when h=2.5σ, where σ is the standard deviation of the concentration distribution.  Use the u_*  and U values from a and b.
+* The distance downstream where the contaminant concentration can be assumed to be well-mixed across the channel.  Remember that it starts in the middle of the channel, so this is the distance traveled downstream during the time it takes to reach one edge.  Use the higher value of the transverse turbulent diffusion coefficient from the notes, as this is more accurate for natural streams.
 
-B) Using this Markov model and a random number generator, simulate 5,000 years of ENSO data.
-
-C) Using this randomly generated data, answer the following questions.
-
-  - According to the model, what is the probability that three warm ENSO years would occur in a row?
-  - What is the large-sample probability that three cool ENSO years would happen in a row?  (Try refreshing the numbers several times to increase the sample size if the condition never happens.)
-
-### Probelm 2: Rating Curves and Application of Bayes Theorem with MCMC
+### Probelm 3: River bed erosion
  
-Following the class discussion and Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use to determine the rating curve:
+To avoid erosion, the river bed is armored with large cobbles, increasing the bed resistance. In a 1km section of the river the depth decreases from 1.9 m to 1.5 m. For this calculation you are told that the discharge is $44 m^3/s$.  The channel bed slope and width can be considered to be the same as in the prior problem.  Determine:
 
-- Least squares linear regression fitting (with transformed variables) using b = 0.28 m
-  - Make 95% confidence intervals around this regression fit 
-  - Then, assume that we don't know exactly what b is. Try additional linear regressions using different values of b = 0.10, 0.20, 0.30, 0.40, and 0.50 m (you do not need to calculate 95% confidence intervals for these additional fits)
-  - Qualitatively, is the range between these 5 additional lines with different b values larger or smaller than the range between the 95% confidence lines from the original fitted line (the one with b = 0.28 cm)?
-- Direct monte carlo parameter estimation
-- Bayesian MCMC fitting
-
-Using the code in Lab 7-3, create plots and discuss the differences in the results from these three methods.
-
-### Problem 2 grads: Work on your term projects (CEWA 565)
+* The head loss and friction slope
+* The shear velocity, u_*
 
 
-### Problem 2 undergrads: Statistics Synthesis (CEE 465)
-
-(Your final exam questions will look similar to this.)
-You are given the below dataset of annual peak flows on the Sauk River: 
-
-![Sauk River Plot](lab7/sauk-river-plot.png)
-
-(Note, you do not need to do any actual analysis here)
-
-For each of the following questions about this dataset, I want you to answer:
- - How do you ask this question statistically? 
- - What tools should you use to answer this question? (think of techniques we’ve learned in class)
- - What should you be careful about? (think of caveats and requirements of the tools you’re recommending).
-
- **A.** Presume some logging occurred in the watershed in 1970. Are peak flows higher after 1970 than before 1970?
- 
- **B.** Presume some logging occurred in the watershed in 1970. Have peak flows become more variable after 1970 than before 1970?
- 
- **C.** If the mean annual peak flow has increased to above 50,000 cfs, the town will rebuild the levees. What are the chances that our statistical test would fail to identify this change?
- 
- **D.** Has there been a trend in peak flows between 1930 and 2010? How fast are peak flows changing, and is this trend significant?

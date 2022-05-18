@@ -137,13 +137,13 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 | **1** | 3/29 <br /> 3/31 | Key concepts in environmental flows | Lab 1 | |
 | **2** | 4/5 <br /> 4/7 | Atmospheric structure and thermodynamics | Lab 2 | 4/7: **HW1 Due** |
 | **3** | 4/12 <br /> 4/14 | Mixing and Dispersion in the Atmosphere | Lab 3| 4/14: **HW2 Due** |
-| **4** | 4/19 <br /> 4/21 | Hydrology | Lab 4 | 4/19 <br /> 4/21: **Exam 1** & **HW3 Due** |
-| **5** | 4/26 <br /> 4/28 | Hydrology| Lab 5 | 4/28: **HW4 Due** |
-| **6** | 5/3 <br /> 5/5  | Flooding and Statistics| Lab 6  | 5/5: **HW5 Due** |
-| **7** | 5/10 <br /> 5/12 |  Groundwater Flow | Lab 7 | 5/10  <br />5/12: **Exam 2** |
-| **8** | 5/17 <br /> 5/19 | Streams, Rivers, and Channels  | Lab 8 | 5/17: **Fieldtrip** <br /> 5/19: **HW6 Due**  |
-| **9** | 5/24 <br /> 5/26 | <br /> Mixing and Dispersion in Rivers | Lab 9 | 5/26 **HW7 Due**  |
-| **10** | 5/31 <br /> 6/2 | Review (Estuaries if time) | Project Work | 5/31 <br /> 6/2: **Exam 3** & **HW8 Due** |
+| **4** | 4/19 <br /> 4/21 | Hydrology | Review | 4/19 <br /> 4/21: **Exam 1** & **HW3 Due** |
+| **5** | 4/26 <br /> 4/28 | Hydrology| Lab 4 | 4/28: **HW4 Due** |
+| **6** | 5/3 <br /> 5/5  | Flooding and Statistics| Lab 5  | 5/5: **HW5 Due** |
+| **7** | 5/10 <br /> 5/12 |  Groundwater Flow | Lab 6 | 5/10  <br />5/12: **Exam 2** |
+| **8** | 5/17 <br /> 5/19 | Streams, Rivers, and Channels  | Fieldtrip | 5/17: **Fieldtrip** <br /> 5/19: **HW6 Due**  |
+| **9** | 5/24 <br /> 5/26 | <br /> Mixing and Dispersion in Rivers | Lab 7 | 5/26 **HW7 Due**  |
+| **10** | 5/31 <br /> 6/2 | Review (Estuaries if time) | Review | 5/31: Lab 8=Review & EIT <br /> 6/2: **Exam 3** & **HW8 Due** |
 | **Finals Week** | 6/6 |  |  | 6/6: **CEE 348 - Final Project Presentations** <br /> |
 
 ## Additional Information
