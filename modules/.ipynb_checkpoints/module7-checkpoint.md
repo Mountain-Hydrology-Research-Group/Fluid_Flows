@@ -8,8 +8,10 @@ Download the lab and data files to your computer. First you will need the lab wo
 * [Lab 7-1: Rating Curves](lab7/lab7-1.ipynb)
   * data: [Lyell_h_Q_sorted.mat](data/Lyell_h_Q_sorted.mat)
   * image: [LyellForkTuolumnegagesite](lab7/LyellFork_Tuolumne_flowcontrol.png)
+  * Note, this python workbook is optional, if you are interested in how rating curves are made.
 * [Lab 7-2: Mixing and Dispersion in Rivers](lab7/lab7-2.ipynb)
-  * data: [CEE348_dye_data_Lab7.xlsx](data/CEE348_dye_data_Lab7.xlsx)
+  * data (to examine not in python): [CEE348_dye_data_Lab7.xlsx](data/CEE348_dye_data_Lab7.xlsx)
+  * data (to examine in python): [Dye_data_GA050630c.csv](data/Dye_data_GA050630c.csv)
 
 ```
 ## Lab Problem:  To be solved together in workshop
