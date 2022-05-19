@@ -10,8 +10,9 @@ For this lab, we will review class material and look at upcoming Environmental E
 
 ### Homework 8, Problem 1: Mixing and Dilution in Rivers
 
-Complete the Lab Worksheet from Module 7
+Complete the Dye Dilution Lab Worksheet introduced in Module 7
 [Mixing and Dilution Worksheet](lab7/CEE348_Spring_2022_Week9Lab.pdf)
+ * data (use in excel and not python): [CEE348_dye_data_Lab7.xlsx](data/CEE348_dye_data_Lab7.xlsx)
  
 ### Homework 8, Problem 2: Revised Storyboard
  
