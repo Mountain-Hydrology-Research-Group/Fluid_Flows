@@ -29,7 +29,7 @@ Hints:  For 1a, use the full conservation of momentum expression derived in clas
  
 ### Problem 2: The Fischer River
 
-The Fischer River has a channel bed slope of S=5×10<sup>-5</sup>}, depth of H=1.5 m, width of 20 m and a bed consisting of 1 cm pebbles, with a Manning’s n of 0.03.  A contaminant is introduced at the bottom of the river in the center of the channel. In this problem, assume that the flow is uniform. Determine:
+The Fischer River has a channel bed slope of S=5×10<sup>-5</sup>, depth of H=1.5 m, width of 20 m and a bed consisting of 1 cm pebbles, with a Manning’s n of 0.03.  A contaminant is introduced at the bottom of the river in the center of the channel. In this problem, assume that the flow is uniform. Determine:
 * The shear velocity, u<sub>*</sub>
 * The depth averaged velocity U using the Manning equation.
 * The distance downstream where the contaminant concentration can be assumed to be well-mixed in the vertical. As in the class example, assume well-mixed conditions occur when h=2.5σ, where σ is the standard deviation of the concentration distribution.  Use the u<sub>*</sub>  and U values from a and b.
