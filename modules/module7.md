@@ -14,7 +14,9 @@ Download the lab and data files to your computer. First you will need the lab wo
   * data (to examine in python): [Dye_data_GA050630c.csv](data/Dye_data_GA050630c.csv)
 
 ```
-## Lab Problem:  To be solved together in workshop
+## Homework 7:
+
+### Problem 1:  (note, we solved this together in lab class, but you need to turn in your write-up for homework)
 ![Bottom shear stress](data/BottomShearStress.png)
 Hints:  For 1a, use the full conservation of momentum expression derived in class, before we simplified using uniform flow.  Remember that the friction slope, S<sub>f</sub> = h<sub>L</sub>/L  (head loss divided by the length).  For 1b, use the expression you generated in 1a.
           
@@ -23,12 +25,7 @@ Hints:  For 1a, use the full conservation of momentum expression derived in clas
 
 * b) What is the percent difference between the actual friction slope and the water surface slope?
 
-* c) When would you expect the difference between S<sub>surface</sub> and S<sub>f</sub> to be large?
-
-## Homework 7:
-
-### Problem 1:  Submit your write-up of the lab/workshop problem above
- 
+* c) When would you expect the difference between S<sub>surface</sub> and S<sub>f</sub> to be large? 
 
 ### Probelm 2: River bed erosion
  
