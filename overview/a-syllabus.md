@@ -3,20 +3,20 @@
 
 ## Course Overview
 
-**Fluid Flows in the Environment - Spring Quarter, 2022**
+**Fluid Flows in the Environment - Spring Quarter, 2024**
 
 The course introduces the fluid flows of the environment. We will survey the range of flow processes that influence the transport and dispersion of contaminants and other material in the environment and develop a framework for predicting their impact.  
 Since each of the flows considered are complex, this course aims to provide only an introduction to each of the key flows. It emphasizes how the core principles of fluid mechanics apply to multiple aspects of the environmental system, as well as the key aspects of fluid flows in the environment that determine the impact of pollutants or of too much or too little water.
 
 
 
-| **CEE 465** | SLN 12213 | 4 units |
+| **CEE 348** | SLN 11836 | 4 units |
 
 
 
 **Instructor:**      Jessica Lundquist, jdlund@uw.edu
 
-**TA:**          Mika Emoto, mikae@uw.edu 
+**TA:**            Maxwell Pearson <maxbp@uw.edu> 
 
 **Lectures:**      Tuesdays & Thursdays: 10:00 am - 11:20 pm (Pacific Time)
 **Practical:**     Tuesdays:  11:30 - 12:20
@@ -31,33 +31,12 @@ By the end of the course, students should be able to
  * Read, modify, and write computer programs to analyze data
  * Apply statistics and computer-based data analysis techniques to real observations (sets of numbers) in order to solve real world problems
 
-```note
-### Guiding principles for this quarter
-1. **Our learning situation is still in flux.**
-  * We have a room to meet together, on campus, but we expect that some people will need to stay home at times during the quarter
-  * Therefore, we are prepared for online options, for potentially teaching remotely, for potentially learning from home, and for varied access to learning materials
-2. **The humane option is the best option.**
-  * We are going to prioritize supporting each other as humans
-  * We are going to prioritize simple solutions that make sense
-  * We are going to prioritize sharing resources and communicating clearly
-  * We are going to prioritize learning what is most useful for you
-3. **We will foster intellectual nourishment, social connection, and personal accommodation.**
-  * Accessible asynchronous content for diverse access and contexts
-  * Accessible synchronous discussion to learn together
-4. **We will remain flexible and adjust to the situation.**
-  * Nobody knows what we’ll need to adapt
-  * Everybody needs support and understanding in these continuing unprecedented times
-  * Provide feedback at any point in the quarter and we will try to improve and adapt
-5. **We’re all in this together**
-
-(These principles were adapted from the [Adjusted Syllabus](https://docs.google.com/document/d/1-6d_W8rdzE9mW2DvPi-dPvRxo4sekKlz3VqEpnu4Dwg/preview) by Brandon Bayne at UNC Chapel Hill)
-```
 
 ### Office Hours
 
 Jessica: Thursdays, immediately after class; or by appointment
 
-Mika: Wednesdays, 4:00-5:00 More 110
+Max: TBA
 
 
 ### Textbooks
@@ -77,7 +56,7 @@ If you need access to a laptop computer (such as if yours breaks) you may check 
 
 ### Lectures
 
-The first hour and a half, twice a week, is reserved for lectures and discussions. We will be meeting in person but also using Zoom to live broadcast these for anyone who feels ill or cannot make it to class. Lectures will be recorded and made available afterwards. Lecture slides will be available on Canvas, along with any additional files for reading.
+The first hour and a half, twice a week, is reserved for lectures and discussions.  Lecture slides will be available on Canvas, written notes on OneNote (with link posted on canvas),  along with any additional files for reading.
 
 
 ### Labs
@@ -130,21 +109,21 @@ Each person will be responsible for creating a 3 to 5-minute video explaining on
 This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
 ```
 
-[UW Academic calendar for 2021-2022](https://www.washington.edu/students/reg/2122cal.html)
+[UW Academic calendar for 2023-2024](https://www.washington.edu/students/reg/2324cal.html)
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **1** | 3/29 <br /> 3/31 | Key concepts in environmental flows | Lab 1 | |
-| **2** | 4/5 <br /> 4/7 | Atmospheric structure and thermodynamics | Lab 2 | 4/7: **HW1 Due** |
-| **3** | 4/12 <br /> 4/14 | Mixing and Dispersion in the Atmosphere | Lab 3| 4/14: **HW2 Due** |
-| **4** | 4/19 <br /> 4/21 | Hydrology | Review | 4/19 <br /> 4/21: **Exam 1** & **HW3 Due** |
-| **5** | 4/26 <br /> 4/28 | Hydrology| Lab 4 | 4/28: **HW4 Due** |
-| **6** | 5/3 <br /> 5/5  | Flooding and Statistics| Lab 5  | 5/5: **HW5 Due** |
-| **7** | 5/10 <br /> 5/12 |  Groundwater Flow | Lab 6 | 5/10  <br />5/12: **Exam 2** |
-| **8** | 5/17 <br /> 5/19 | Streams, Rivers, and Channels  | Fieldtrip | 5/17: **Fieldtrip** <br /> 5/19: **HW6 Due**  |
-| **9** | 5/24 <br /> 5/26 | <br /> Mixing and Dispersion in Rivers | Lab 7 | 5/26 **HW7 Due**  |
-| **10** | 5/31 <br /> 6/2 | Review (Estuaries if time) | Review | 5/31: Lab 8=Review & EIT <br /> 6/2: **Exam 3** & **HW8 Due** |
-| **Finals Week** | 6/6 |  |  | 6/6: **CEE 348 - Final Project Presentations** <br /> |
+| **1** | 3/26 <br /> 3/28 | Key concepts in environmental flows | Lab 1 | |
+| **2** | 4/2 <br /> 4/4 | Atmospheric structure and thermodynamics | Lab 2 | 4/4: **HW1 Due** |
+| **3** | 4/9 <br /> 4/11 | Mixing and Dispersion in the Atmosphere | Lab 3| 4/11: **HW2 Due** |
+| **4** | 4/16 <br /> 4/18 | Hydrology | Review | 4/16 <br /> 4/18: **Exam 1** & **HW3 Due** |
+| **5** | 4/23 <br /> 4/25 | Hydrology| Lab 4 | 4/23: **HW4 Due** |
+| **6** | 4/30 <br /> 5/2  | Flooding and Statistics| Lab 5  | 5/2: **HW5 Due** |
+| **7** | 5/7 <br /> 5/9 |  Groundwater Flow | Lab 6 | 5/7  <br />5/9: **Exam 2** |
+| **8** | 5/14 <br /> 5/16 | Streams, Rivers, and Channels  | ??Fieldtrip?? | 5/14: **Maybe Fieldtrip** <br /> 5/16: **HW6 Due**  |
+| **9** | 5/21 <br /> 5/23 | <br /> Mixing and Dispersion in Rivers | Lab 7 | 5/23 **HW7 Due**  |
+| **10** | 5/28 <br /> 5/30 | Review (Estuaries if time) | Review | 5/28: Lab 8=Review & EIT <br /> 5/30: **Exam 3** & **HW8 Due** |
+| **Finals Week** | 6/3 |  |  | 6/3: **CEE 348 - Final Project Presentations** <br /> |
 
 ## Additional Information
 

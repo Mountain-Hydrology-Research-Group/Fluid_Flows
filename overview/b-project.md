@@ -1,15 +1,15 @@
 
 # Course Project: CEE 348
 
-Due as a 3-5 minute video presentation during the Final Exam slot, 6/6, 10:30-12:20
+Due as a 3-5 minute video presentation during the Final Exam slot, 6/3, 10:30-12:20
 
 Milestones will be due as part of weekly homework assignments.  Completing each milestone on time will give you credit towards that week’s homework assignment.
-* As part of homework 2 (due 4/14), you need to rank from 1 to 10, your top choices of topics for your video, from the topic list below.  We will have a different person on each topic.  I will strive to get everyone as close to their top choice as possible and will announce your topic on 4/21.
-* As part of homework 5 (due 5/5), you will need a one-page storyboard (sketches and outline) of what you plan to present in your video – what will you cover and how you plan to present it. [Note that people responsible for later topics in the quarter should reach out to the professor for advance access to the material.]
-* As part of homework 6 (due 5/12), you will need to provide feedback to two other people about what you think of their storyboard ideas.
-* As part of homework 8 (due 5/26), you will need to provide a revised storyboard, as well as an update on how video recording and/or prepping is progressing.
-* Final prep for final exam day(6/5), upload or provide link to your video – realize that sometimes this can be slow and take overnight, so have your video finished the day before you want to present it.
-* Final exam (6/6), present your video to the class.
+* As part of homework 2 (due 4/11), you need to rank from 1 to 10, your top choices of topics for your video, from the topic list below.  We will have a different person on each topic.  I will strive to get everyone as close to their top choice as possible and will announce your topic on 4/21.
+* As part of homework 5 (due 5/2), you will need a one-page storyboard (sketches and outline) of what you plan to present in your video – what will you cover and how you plan to present it. [Note that people responsible for later topics in the quarter should reach out to the professor for advance access to the material.]
+* As part of homework 6 (due 5/9), you will need to provide feedback to two other people about what you think of their storyboard ideas.
+* As part of homework 8 (due 5/23), you will need to provide a revised storyboard, as well as an update on how video recording and/or prepping is progressing.
+* Final prep for final exam day(6/2), upload or provide link to your video – realize that sometimes this can be slow and take overnight, so have your video finished the day before you want to present it.
+* Final exam (6/3), present your video to the class.
 
 
 
