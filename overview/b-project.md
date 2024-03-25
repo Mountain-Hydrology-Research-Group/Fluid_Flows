@@ -18,7 +18,7 @@ Milestones will be due as part of weekly homework assignments.  Completing each 
 
 1.	Atmospheric stability (inversions)
 2.	Atmospheric winds (dynamics)
-3.	Moisture in the atmosphere (e.g., thermodynamics, fog, clouds
+3.	Moisture in the atmosphere (e.g., thermodynamics, fog, clouds)
 4.	Orographic precipitation
 5.	Atmospheric pollution (gaussian plume solution to advection/dispersion from a smokestack)
 6.	Atmospheric pollution (airshed box model)
