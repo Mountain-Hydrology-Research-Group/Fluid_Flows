@@ -6,7 +6,7 @@
 
 ## Homework 1
 
-Provide a 1-2 page write-up describing the fluid flow components of an environmental problem or concern. You are free to pick any one you want, except the examples discussed in class. In your write up, please include:
+Provide a 1-2 page write-up describing the fluid flow components of an environmental problem or concern. Please pick as specific a problem as you can (a specific case study). You are free to pick any one you want, except the examples discussed in class. In your write up, please include:
 
 * A description of the key elements of the environmental problem
 
