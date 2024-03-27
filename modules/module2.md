@@ -6,9 +6,10 @@ For this week, we recommend reading Ch 2 and Ch 3 in Shuttleworth's [Terrestrial
 ```note
 ## Lab 2: Plotting balloon soundings
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html).
 
 * Data: [Practice Data](data/my_data.csv)
+* Data: [Skykomish River Peak Flows, for plotting practice](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
 * Data: [Sounding Data Dec 26](data/2021-12-26_radiosonde.csv)
 * Data: [Sounding Data Jan 03](data/2022-01-03_radiosonde.csv)
 * Data: [Sounding Data Jan 06](data/2022-01-06_radiosonde.csv)
