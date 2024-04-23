@@ -15,6 +15,11 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 * for Lab 5-2, you will also want to look at this lab on [Probability Distributions](lab5/probability-distributions.ipynb) to  better understand what is going on.
 
+* [Lab 5-3: Winds and Orographic Precipitation](lab5/lab5-3.ipynb)
+[Elevation Profile](modules/lab5/elevation-profile_Olympics.csv)
+
+* [Lab 5-4: Evaporation **NOTE, still in development**](lab5/lab5-4.ipynb)
+
 ```
 
 ## Homework 5
@@ -26,7 +31,7 @@ Choose **one** of the following methods for precipitation distribution.
 
 ![map](data/Theissen_homework_graphic.png)
 
-**OPTION 2:**  If you are able to use QGIS and are interested in learning more GIS-based techniques, watch the [QGISHydro Webinar 2](https://www.youtube.com/watch?v=84cq3CmBwck&t=832s). Use what you learn to import the [Cedar_area_precip_inches.xlsx](data/Cedar_area_precip_inches.xlsx) file into your delineated Cedar River watershed file.  The lat and lon are in NAD83 Geographic (same as our gauge point from before).  Plot the AnnualP(mm) values (the right-most column in the excel sheet) on your QGIS map and interpolate in between them.   Note that there are many different ways to interpolate on a map; you may use the method recommended by the video.  Include a screenshot, describe how your chosen interpolation method works, and describe the pros and cons of this method vs. using Theissen polynomials.
+**OPTION 2:**  Follow Lab-3, but instead of the Olympics, extract a line of elevation along the center of the Cedar River Watershed.  Presuming precipitation follows the linear orographic precipitation model, determine the condensation rate (and presumed instantaneous rain rate) for each elevation.  Then, use the area at each elevation (easiest if you determine elevation bands) to determine the total rainfall across the watershed.  Please show your work in your python notebook.  Please extract the notebook to PDF, or take screen shots and put it into a word document, before you turn it in. 
 
 ### Problem 2: Peak Flows and Flood Risk in the Cedar River Watershed (4 pts)
 
