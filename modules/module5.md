@@ -16,7 +16,8 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * for Lab 5-2, you will also want to look at this lab on [Probability Distributions](lab5/probability-distributions.ipynb) to  better understand what is going on.
 
 * [Lab 5-3: Winds and Orographic Precipitation](lab5/lab5-3.ipynb)
-[Elevation Profile](modules/lab5/elevation-profile_Olympics.csv)
+
+* Download this [Elevation Profile](modules/lab5/elevation-profile_Olympics.csv) and upload to use with 5-3.
 
 * [Lab 5-4: Evaporation **NOTE, still in development**](lab5/lab5-4.ipynb)
 
