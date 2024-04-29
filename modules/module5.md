@@ -32,7 +32,7 @@ Choose **one** of the following methods for precipitation distribution.
 
 ![map](data/Theissen_homework_graphic.png)
 
-**OPTION 2:**  Follow Lab-3, but instead of the Olympics, extract a line of elevation along the center of the Cedar River Watershed.  Presuming precipitation follows the linear orographic precipitation model, determine the condensation rate (and presumed instantaneous rain rate) for each elevation.  Then, use the area at each elevation (easiest if you determine elevation bands) to determine the total rainfall across the watershed.  Please show your work in your python notebook.  Please extract the notebook to PDF, or take screen shots and put it into a word document, before you turn it in. 
+**OPTION 2:**  Follow Lab-3, but instead of the Olympics, extract a line of elevation along the center of the Cedar River Watershed.  Presuming precipitation follows the linear orographic precipitation model, determine the condensation rate (and presumed instantaneous rain rate) for each elevation.  Then, use the area at each elevation (easiest if you determine elevation bands) to determine the area-average rainfall (in mm) across the watershed.  This [excel sheet](data/Cedar_elevation_area.xlsx) has information on elevation vs. area for the Cedar River.    You may choose to import the area vs elevation from the excel sheet, or you can define elevation bands and sum the area within them in excel and then type/paste those area weights into your python notebook.  Please show your work. Please extract your python notebook to PDF, or take screen shots and put it into a word document, before you turn it in. 
 
 ### Problem 2: Peak Flows and Flood Risk in the Cedar River Watershed (4 pts)
 

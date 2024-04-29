@@ -96,7 +96,6 @@ Each person will be responsible for creating a 3 to 5-minute video explaining on
 
 * **Exams (three at 15% each): 45%**
   * Participation includes discussions in class, on Slack, and providing feedback on student presentations
-  * *If you plan on attending class asynchronously by watching the recorded lectures, please let me know.*
 * **Homework assignments: 40%**
   * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.
 * **Final Project: 15%**
@@ -120,7 +119,7 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 | **5** | 4/23 <br /> 4/25 | Hydrology| Lab 4 | 4/23: **HW4 Due** |
 | **6** | 4/30 <br /> 5/2  | Flooding and Statistics| Lab 5  | 5/2: **HW5 Due** |
 | **7** | 5/7 <br /> 5/9 |  Groundwater Flow | Lab 6 | 5/7  <br />5/9: **Exam 2** |
-| **8** | 5/14 <br /> 5/16 | Streams, Rivers, and Channels  | ??Fieldtrip?? | 5/14: **Maybe Fieldtrip** <br /> 5/16: **HW6 Due**  |
+| **8** | 5/14 <br /> 5/16 | Streams, Rivers, and Channels  | Fieldtrip | 5/14: Maybe Fieldtrip <br /> 5/16: **HW6 Due**  |
 | **9** | 5/21 <br /> 5/23 | <br /> Mixing and Dispersion in Rivers | Lab 7 | 5/23 **HW7 Due**  |
 | **10** | 5/28 <br /> 5/30 | Review (Estuaries if time) | Review | 5/28: Lab 8=Review & EIT <br /> 5/30: **Exam 3** & **HW8 Due** |
 | **Finals Week** | 6/3 |  |  | 6/3: **CEE 348 - Final Project Presentations** <br /> |
