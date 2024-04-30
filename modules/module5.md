@@ -17,7 +17,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 * [Lab 5-3: Winds and Orographic Precipitation](lab5/lab5-3.ipynb)
 
-* Download this [Elevation Profile](modules/lab5/elevation-profile_Olympics.csv) and upload to use with 5-3.
+* Download this [Elevation Profile](data/elevation-profile_Olympics.csv) and upload to use with 5-3.
 
 * [Lab 5-4: Evaporation **NOTE, still in development**](lab5/lab5-4.ipynb)
 
