@@ -9,11 +9,15 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * [Lab 3-2: Wind Profiles](lab3/lab3-2.ipynb)
 * [Lab 3-3: Stability Classes](lab3/lab3-3.ipynb)
 * [Lab 3-4: Solve an Air Quality Problem](lab3/lab3-4.ipynb)
+* [Lab 3-5: BONUS, extra credit: Guassian Smokestack with an Inversion](lab3/lab3-5.ipynb)
   * Data: [Sounding Data Jan 10](data/2022-01-10_radiosonde.csv)
   * Data: [Sounding Data Dec 26](data/2021-12-26_radiosonde.csv)
   * Graphic: [Smokestack_gaussian_plume.png](data/Smokestack_gaussian_plume.png)
   * Graphic: [Plume_reflection.png](data/Plume_reflection.png)
   * Graphic: [Stability_classes.png](data/stability_table.png)
+  * BONUS Graphic: [Smokestack_oneReflection.jpg](data/Smokestack_oneReflection.jpg)
+  * BONUS Graphic: [Smokestack_2reflections.jpg](data/Smokestack_2reflections.jpg)
+  * BONUS Graphic: [Smokestacks_doublereflections.jpg](data/Smokestacks_doublereflections.jpg)
 
 ```
 
