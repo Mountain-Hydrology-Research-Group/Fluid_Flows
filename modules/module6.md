@@ -21,11 +21,11 @@ Water flows through three confined aquifers in series with the properties shown 
 
 ### Problem 2: (3 points) Water Flow through unconfined aquifers
 
-An unconfined aquifer has a hydraulic conductivity of 8.7 x 10^{-2} cm/s.  There are two observation wells 597 ft apart.  Both penetrate the aquifer to the bottom.  In one observation well the water stands 28.9 ft above the bottom, and in the other it is 26.2 ft above the bottom. (a) What is the discharge per 100-ft-wide strip of the aquifer in cubic feet per day? (b) What is the water table elevation at a point midway between the two observation wells?
+An unconfined aquifer has a hydraulic conductivity of 6 x 10^{-2} cm/s.  There are two observation wells 600 ft apart.  Both penetrate the aquifer to the bottom.  In one observation well the water stands 29 ft above the bottom, and in the other it is 26 ft above the bottom. (a) What is the discharge per 100-ft-wide strip of the aquifer in cubic feet per day? (b) What is the water table elevation at a point midway between the two observation wells?
 
 ### Problem 3: (3 points) Contaminant Transport and breakthrough curves
 
-You have three observation wells, as shown below.  Three contaminants, A, B, and C are released into the aquifer at Well 1 at a constant, steady rate.  You are monitoring for each of these contaminants at Well 2 and Well 3.  You know the following about the contaminants: All three contaminants are subject to advection.  Contaminant A does not disperse or adsorb.  Contaminant B has a very high dispersion coefficient but does not adsorb.  Contaminant C is subject to slight dispersion (higher than A but less than C) and has a strong tendency to adsorb to soil particles. 
+Note: The lab activities will help you with this problem.   You have three observation wells, as shown below.  Three contaminants, A, B, and C are released into the aquifer at Well 1 at a constant, steady rate.  You are monitoring for each of these contaminants at Well 2 and Well 3.  You know the following about the contaminants: All three contaminants are subject to advection.  Contaminant A does not disperse or adsorb.  Contaminant B has a very high dispersion coefficient but does not adsorb.  Contaminant C is subject to slight dispersion (higher than A but less than C) and has a strong tendency to adsorb to soil particles. 
 
 ![GWHW_prob3 graphic](lab6/GWHW_prob3.png) 
 
