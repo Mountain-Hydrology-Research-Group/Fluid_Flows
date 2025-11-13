@@ -6,11 +6,11 @@
 
 ## 📚 Quick Navigation
 
-### [📖 Overview](overview/)
+### 📖 Overview
 - [Syllabus: CEE 348](overview/a-syllabus.md)
 - [Course Project: CEE 348](overview/b-project.md)
 
-### [📘 Modules](modules/)
+### 📘 Modules
 1. [Key Concepts in Environmental Flows](modules/module1.md)
 2. [Atmospheric Structure and Thermodynamics](modules/module2.md)
 3. [Mixing and dispersion in the atmosphere](modules/module3.md)
@@ -20,7 +20,7 @@
 7. [Streams, rivers, and channels](modules/module7.md)
 8. [Review](modules/module8.md)
 
-### [📚 Learning Resources](resources/)
+### 📚 Learning Resources
 - [Python](resources/a-learning-python.md)
 - [Jupyter](resources/b-learning-jupyter.md)
 - [Other Resources](resources/c-learning-other.md)
