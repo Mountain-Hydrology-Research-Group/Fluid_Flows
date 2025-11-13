@@ -1,4 +1,6 @@
+[← Back to Home](../)
 
+---
 # Course Project: CEE 348
 
 Due as a 3-5 minute video presentation during the Final Exam slot, 6/3, 10:30-12:20
