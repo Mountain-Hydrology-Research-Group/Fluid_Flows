@@ -1,14 +1,33 @@
 title: Fluid Flows
 lang: en
 description: CEE 348
-theme: jekyll-theme-cayman
+remote_theme: clearpathrobotics/jekyll-rtd-theme
 
-plugins:
-  - jemoji
-  - jekyll-avatar
-  - jekyll-mentions
+url: "https://mountain-hydrology-research-group.github.io"
+baseurl: "/Fluid_Flows"
+
+addons_branch: true
+edit: true
+copyright:
+  revision: true
+addons:
+  - github
+  - i18n
+  - plugins
+  - analytics
+
+readme_index:
+  with_frontmatter: true
+
+sass:
+  style: compressed
 
 exclude:
   - Makefile
   - Gemfile
   - Gemfile.lock
+
+plugins:
+  - jemoji
+  - jekyll-avatar
+  - jekyll-mentions
