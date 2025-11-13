@@ -1,4 +1,6 @@
+[← Back to Home](../)
 
+---
 # Syllabus: CEE 348
 
 ## Course Overview
