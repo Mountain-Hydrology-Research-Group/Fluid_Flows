@@ -1,3 +1,6 @@
+[← Back to Home](../)
+
+---
 # 7) Streams, rivers, and channels
 
 ```note
