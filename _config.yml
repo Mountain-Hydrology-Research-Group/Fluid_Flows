@@ -2,7 +2,7 @@ title: Fluid Flows
 lang: en
 description: CEE 348
 
-remote_theme: rundocs/jekyll-rtd-theme@v1.1.7
+remote_theme: rundocs/jekyll-rtd-theme@2.0.10
 
 addons_branch: true
 edit: true
@@ -33,5 +33,4 @@ plugins:
   - jemoji
   - jekyll-avatar
   - jekyll-mentions
-
-theme: jekyll-theme-slate
+  
