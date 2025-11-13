@@ -1,6 +1,11 @@
 ---
 sort: 2
 ---
+
+**📍 Navigation:** [🏠 Home](../) | [📖 Overview](../overview/) | [📘 Modules](./) | [📚 Resources](../resources/)
+
+---
+
 # Modules
 
 1. [Key Concepts in Environmental Flows](module1.md)
