@@ -1,7 +1,7 @@
 ---
 sort: 1
 ---
-
 # Overview
 
-{% include list.liquid all=true %}
+- [Syllabus: CEE 348](a-syllabus.md)
+- [Course Project: CEE 348](b-project.md)
