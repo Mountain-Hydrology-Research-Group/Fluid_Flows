@@ -1,11 +1,7 @@
 title: Fluid Flows
 lang: en
 description: CEE 348
-remote_theme: just-the-docs/just-the-docs
-
-color_scheme: light
-search_enabled: true
-heading_anchors: true
+theme: jekyll-theme-cayman
 
 plugins:
   - jemoji
