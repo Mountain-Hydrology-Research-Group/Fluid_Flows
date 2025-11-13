@@ -1,6 +1,11 @@
 ---
 sort: 3
 ---
+
+**📍 Navigation:** [🏠 Home](../) | [📖 Overview](../overview/) | [📘 Modules](../modules/) | [📚 Resources](../)
+
+---
+
 # Learning Resources
 
 - [Python](a-learning-python.md)
