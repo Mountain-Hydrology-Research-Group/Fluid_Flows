@@ -1,3 +1,6 @@
+[← Back to Home](../)
+
+---
 # Jupyter
 
 ## Jupyter Notebooks
