@@ -10,16 +10,15 @@ Since each of the flows considered are complex, this course aims to provide only
 
 
 
-| **CEE 348** | SLN 11836 | 4 units |
+| **CEE 348** | SLN 11720 | 4 units |
 
 
 
 **Instructor:**      Jessica Lundquist, jdlund@uw.edu
 
-**TA:**            Maxwell Pearson <maxbp@uw.edu> 
+**TA:**            Kathryn Farabaugh, kfara@uw.edu     
 
-**Lectures:**      Tuesdays & Thursdays: 10:00 am - 11:20 pm (Pacific Time)
-**Practical:**     Tuesdays:  11:30 - 12:20
+**Lectures/Lab:**      Tuesdays & Thursdays: 10:30 am - 12:20 pm (Pacific Time)
 
 The room location, and the Zoom link (if needed) to remotely attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
 
@@ -36,7 +35,7 @@ By the end of the course, students should be able to
 
 Jessica: Thursdays, immediately after class; or by appointment
 
-Max: TBA
+Kathryn: TBA
 
 
 ### Textbooks
@@ -110,17 +109,17 @@ Each person will be responsible for creating a 3 to 5-minute video explaining on
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **1** | 3/26 <br /> 3/28 | Key concepts in environmental flows | Lab 1 | |
-| **2** | 4/2 <br /> 4/4 | Atmospheric structure and thermodynamics | Lab 2 | 4/4: **HW1 Due** |
-| **3** | 4/9 <br /> 4/11 | Mixing and Dispersion in the Atmosphere | Lab 3| 4/11: **HW2 Due** |
-| **4** | 4/16 <br /> 4/18 | Hydrology | Review | 4/16 <br /> 4/18: **Exam 1** & **HW3 Due** |
-| **5** | 4/23 <br /> 4/25 | Hydrology| Lab 4 | 4/23: **HW4 Due** |
-| **6** | 4/30 <br /> 5/2  | Flooding and Statistics| Lab 5  | 5/2: **HW5 Due** |
-| **7** | 5/7 <br /> 5/9 |  Groundwater Flow | Lab 6 | 5/7  <br />5/9: **Exam 2** |
-| **8** | 5/14 <br /> 5/16 | Streams, Rivers, and Channels  | Fieldtrip | 5/14: Maybe Fieldtrip <br /> 5/16: **HW6 Due**  |
-| **9** | 5/21 <br /> 5/23 | <br /> Mixing and Dispersion in Rivers | Lab 7 | 5/23 **HW7 Due**  |
-| **10** | 5/28 <br /> 5/30 | Review (Estuaries if time) | Review | 5/28: Lab 8=Review & EIT <br /> 5/30: **Exam 3** & **HW8 Due** |
-| **Finals Week** | 6/3 |  |  | 6/3: **CEE 348 - Final Project Presentations** <br /> |
+| **1** | 3/31 <br /> 4/2 | Key concepts in environmental flows | Lab 1 | |
+| **2** | 4/7 <br /> 4/9 | Atmospheric structure and thermodynamics | Lab 2 | **HW1 Due** |
+| **3** | 4/14 <br /> 4/16 | Mixing and Dispersion in the Atmosphere | Lab 3| **HW2 Due** |
+| **4** | 4/21 <br /> 4/23 | Hydrology | Review | <br /> **Exam 1** & **HW3 Due** |
+| **5** | 4/28 <br /> 4/30 | Hydrology| Lab 4 |  **HW4 Due** |
+| **6** | 5/5 <br /> 5/7  | Flooding and Statistics| Lab 5  | **HW5 Due** |
+| **7** | 5/12 <br /> 5/14 |  Groundwater Flow | Lab 6 |  <br /> **Exam 2** |
+| **8** | 5/19 <br /> 5/21 | Streams, Rivers, and Channels  |  |  <br />  **HW6 Due**  |
+| **9** | 5/26 <br /> 5/28 | <br /> Mixing and Dispersion in Rivers | Lab 7 |  **HW7 Due**  |
+| **10** | 6/2 <br /> 6/4 | Review (Estuaries if time) | Review |  Lab 8=Review & EIT <br />  **Exam 3** & **HW8 Due** |
+| **Finals Week** | 6/8 |  |  |  **CEE 348 - Final Project Presentations** <br /> |
 
 ## Additional Information
 
