@@ -3,7 +3,7 @@
 
 ## Course Overview
 
-**Fluid Flows in the Environment - Spring Quarter, 2024**
+**Fluid Flows in the Environment - Spring Quarter, 2026**
 
 The course introduces the fluid flows of the environment. We will survey the range of flow processes that influence the transport and dispersion of contaminants and other material in the environment and develop a framework for predicting their impact.  
 Since each of the flows considered are complex, this course aims to provide only an introduction to each of the key flows. It emphasizes how the core principles of fluid mechanics apply to multiple aspects of the environmental system, as well as the key aspects of fluid flows in the environment that determine the impact of pollutants or of too much or too little water.
@@ -60,7 +60,7 @@ The first hour and a half, twice a week, is reserved for lectures and discussion
 
 ### Labs
 
-On Tuesdays, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (practice problems, jupyter notebooks and data files) can be downloaded directly from the from class website or from canvas. ([GitHub Option](https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
+On Tuesdays, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (practice problems, jupyter notebooks and data files) can be downloaded directly from the class website or from canvas. ([GitHub Option](https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
 
 We will use classroom space and Slack to work in small groups on Lab excercises. Contact the instructor or TA to be added to the Slack workspace.
 
@@ -93,9 +93,9 @@ Each person will be responsible for creating a 3 to 5-minute video explaining on
 
 ### Grading Policy
 
-* **Exams (three at 15% each): 45%**
+* **Exams (three at 20% each): 60%**
   * Participation includes discussions in class, on Slack, and providing feedback on student presentations
-* **Homework assignments: 40%**
+* **Homework assignments: 25%**
   * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.
 * **Final Project: 15%**
   * See the [CEE 348 course project page](/overview/b-project.html) for grading rubric.
@@ -105,19 +105,17 @@ Each person will be responsible for creating a 3 to 5-minute video explaining on
 
 **This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.**
 
-[UW Academic calendar for 2023-2024](https://www.washington.edu/students/reg/2324cal.html)
-
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
 | **1** | 3/31 <br /> 4/2 | Key concepts in environmental flows | Lab 1 | |
-| **2** | 4/7 <br /> 4/9 | Atmospheric structure and thermodynamics | Lab 2 | **HW1 Due** |
-| **3** | 4/14 <br /> 4/16 | Mixing and Dispersion in the Atmosphere | Lab 3| **HW2 Due** |
+| **2** | 4/7 <br /> 4/9 | Atmospheric structure and thermodynamics | Lab 2 | <br />**HW1 Due** |
+| **3** | 4/14 <br /> 4/16 | Mixing and Dispersion in the Atmosphere | Lab 3|<br />**HW2 Due** |
 | **4** | 4/21 <br /> 4/23 | Hydrology | Review | <br /> **Exam 1** & **HW3 Due** |
-| **5** | 4/28 <br /> 4/30 | Hydrology| Lab 4 |  **HW4 Due** |
-| **6** | 5/5 <br /> 5/7  | Flooding and Statistics| Lab 5  | **HW5 Due** |
+| **5** | 4/28 <br /> 4/30 | Hydrology| Lab 4 | <br /> **HW4 Due** |
+| **6** | 5/5 <br /> 5/7  | Flooding and Statistics| Lab 5  |<br /> **HW5 Due** |
 | **7** | 5/12 <br /> 5/14 |  Groundwater Flow | Lab 6 |  <br /> **Exam 2** |
 | **8** | 5/19 <br /> 5/21 | Streams, Rivers, and Channels  |  |  <br />  **HW6 Due**  |
-| **9** | 5/26 <br /> 5/28 | <br /> Mixing and Dispersion in Rivers | Lab 7 |  **HW7 Due**  |
+| **9** | 5/26 <br /> 5/28 | <br /> Mixing and Dispersion in Rivers | Lab 7 | <br /> **HW7 Due**  |
 | **10** | 6/2 <br /> 6/4 | Review (Estuaries if time) | Review |  Lab 8=Review & EIT <br />  **Exam 3** & **HW8 Due** |
 | **Finals Week** | 6/8 |  |  |  **CEE 348 - Final Project Presentations** <br /> |
 
