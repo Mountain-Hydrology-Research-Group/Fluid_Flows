@@ -32,10 +32,12 @@ Three cities have the following temperature (T) and dew point (Td) during a Marc
 
 | city | temperature | dew point temperature |
 | --- | --- |  --- |
-| Death Valley, CA | T = 24&deg;C | Td = -4&deg;C |
-| Seattle, WA | T = 11&deg;C | Td = 7&deg;C |
-| Spokane, WA | T = 8&deg;C | Td = 3&deg;C |
-| Taos, NM | T= -1&deg;C | Td= -2&deg;C |
+| Death Valley, CA | T = 33&deg;C | Td = -5&deg;C |
+| Seattle, WA | T = 7&deg;C | Td = 5&deg;C |
+| Spokane, WA | T = 22&deg;C | Td = 4&deg;C |
+| Taos, NM | T= 15&deg;C | Td= -12&deg;C |
+
+Calculate the relative humidity and the specific humidity for each city.
 
 Which city has
 * (a) the highest relative humidity?
@@ -47,7 +49,7 @@ Which city has
 
 
 ### Problem 3 (option 1: choose this if you dislike python)
-The figure below shows environmental temperature data on the west side of a conical mountain.  Suppose the wind is blowing from the west and a parcel of surface air with a temperature of 11&deg;C and a dew point of 7&deg;C begins to rise upward along the western (windward) side of the hill.
+The figure below shows environmental temperature data on the west side of a conical mountain.  Suppose the wind is blowing from the west and a parcel of surface air with a temperature of 11&deg;C and a dew point of 3&deg;C begins to rise upward along the western (windward) side of the hill. (You may use approximate values: assume that the dew point temperature decreases at a rate of 2 K per km, that dry air temperature decreases -10 K per km, and that saturated air temperature decreases -6 K per km.)
 
 ![mountain](../data/mtn_lapse_rate.jpg)
 
@@ -62,7 +64,7 @@ The figure below shows environmental temperature data on the west side of a coni
 * (i) What temperature do you expect this air to be when it reaches 1000m on the eastern side?
 
 ### Problem 3 (option 2: choose this if you want to use python)
-Using the jupyterhub, and building off what we learned in lab 2-3, look at the environmental temperature and relative humidity data from the sounding launched in Gothic, Colorado on January 6, 2022. 
+Using the jupyterhub, and building off what we learned in lab 2-3, look at the environmental temperature and relative humidity data from the sounding launched in Gothic, Colorado on December 26, 2021. 
 
 * (a) Calculate the environmental lapse rate
 * (b) Assuming the lowest level of the sounding represents the surface temperature and relative humidity, plot the temperature a dry air parcel would have if it were lifted adibatically from that point
