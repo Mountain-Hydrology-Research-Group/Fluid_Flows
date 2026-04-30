@@ -16,7 +16,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 * [Lab 5-3: Winds and Orographic Precipitation](lab5-3.ipynb)
 
-* Download this [Elevation Profile](../data/elevation-profile_Olympics.csv) and upload to use with 5-3.
+* Download this [Elevation Profile](../data/elevation-profile_Olympics.csv) and upload to use with Lab 5-3.
 
 * [Lab 5-4: Evaporation **NOTE, still in development**](lab5-4.ipynb)
 
@@ -39,4 +39,4 @@ Following the example in lab 5-2, plot the data in log-probability space and est
 
 ### Problem 3: Planning for final project video (2 pts)
 
-Write 1-2 paragraphs of what you plan to do for your final project video.  What will you cover?  How many minutes will each sub-topic take?  How will you present things visually?  Feel free to include any sketches and diagrams and any questions you have at this point.  Note that lecture notes for future class topics are now available in Canvas – also feel free to reach out to the professor or TA.  This write-up will be peer reviewed as part of the next homework.  Make sure that you have an electronic copy of your write-up that you will be able to post in a discussion forum on either Canvas or Slack for your classmates to access.
+Write 1-2 paragraphs of what you plan to do for your final project video.  What will you cover?  How many minutes will each sub-topic take? (Remember that each individual has 3 minutes; if you are partnering with someone, clarify who and how you will organize your 6 minuts.) How will you present things visually?  Feel free to include any sketches and diagrams and any questions you have at this point.  Note that lecture notes for future class topics are available on SharePoint – also feel free to reach out to the professor or TA.  This write-up will be peer reviewed as part of the next homework.  Make sure that you have an electronic copy of your write-up that you will be able to post in a discussion forum on either Canvas or Slack for your classmates to access.
