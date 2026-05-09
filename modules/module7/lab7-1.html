@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 7-1: Rating Curves</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module7/lab7-1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 7-2: Mixing and dye-dilution discharge" href="lab7-2.html" />
+    <link rel="prev" title="7) Streams, rivers, and channels" href="module7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt=" - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Fluid Flows in the Environment
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus: CEE 348</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project: CEE 348</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Key Concepts in Environmental Flows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Atmospheric Structure and Thermodynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: Atmospheric Thermodynamics and Stability</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Mixing and dispersion in the atmosphere</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1: Gaussian Smoke Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Wind profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3:  Stability classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-4.html">Lab 3-4:  Combine all the steps and solve a problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-5.html">Lab 3-5 (BONUS): Gaussian Smoke Stack Reflections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Watershed Hydrology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Hydrology, Flooding and Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Calculating the Water Balance for the area draining to Cedar Lake, Washington</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Flood Probability</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-3.html">Lab 5-3: Winds and Orographic Precipitation</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Groundwater Flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Contaminant Transport in Groundwater</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module7.html">7) Streams, rivers, and channels</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 7-1: Rating Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab7-2.html">Lab 7-2: Mixing and dye-dilution discharge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries Lab</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">Some more python to get you started</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/edit/main/book/modules/module7/lab7-1.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/issues/new?title=Issue%20on%20page%20%2Fmodules/module7/lab7-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module7/lab7-1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 7-1: Rating Curves</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-the-provided-data">Load in the provided data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-rating-curves">Calculating rating curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-linear-regression-of-transformed-variables">PART 1: Linear Regression of Transformed Variables:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-1-rating-curves">
+<h1>Lab 7-1: Rating Curves<a class="headerlink" href="#lab-7-1-rating-curves" title="Link to this heading">#</a></h1>
+<p>This is an exerpt from a lab from CEE 465: Data Analysis, which goes deeper into the statistics of rating curve calculations
+(Put together by Steven Pestana, 2019 and Jessica Lundquist, years before 2019)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sio</span> 
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="load-in-the-provided-data">
+<h2>Load in the provided data:<a class="headerlink" href="#load-in-the-provided-data" title="Link to this heading">#</a></h2>
+<p>We’re provided data in a .mat format (MATLAB’s data file format). The <code class="docutils literal notranslate"><span class="pre">scipy.io</span></code> library has a function that allows us to read these types of files. Take a look at its documentation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sio.loadmat<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now load the Lyell canyon streamflow data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s1">&#39;../data/Lyell_h_Q_sorted.mat&#39;</span><span class="p">)</span>
+<span class="c1"># Note, if you have copied the .mat file into your current directory, comment out the line above and use the one below instead</span>
+<span class="c1"># data = sio.loadmat(&#39;Lyell_h_Q_sorted.mat&#39;) </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What kind of data structure is our data in?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a dictionary. <a class="reference external" href="https://docs.python.org/3.8/tutorial/datastructures.html#dictionaries">Read more about python dictionaries here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># See what our data looks like in a dictionary data structure</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__header__&#39;: b&#39;MATLAB 5.0 MAT-file, Platform: MACI64, Created on: Tue Nov  3 14:17:54 2015&#39;,
+ &#39;__version__&#39;: &#39;1.0&#39;,
+ &#39;__globals__&#39;: [],
+ &#39;h1&#39;: array([[0.1805],
+        [0.2197],
+        [0.2406],
+        [0.2407],
+        [0.2565],
+        [0.2822],
+        [0.285 ],
+        [0.2904],
+        [0.2907],
+        [0.2907],
+        [0.2925],
+        [0.3066],
+        [0.3185],
+        [0.3227],
+        [0.3405],
+        [0.3492],
+        [0.3648],
+        [0.3668],
+        [0.3757],
+        [0.3781],
+        [0.3814],
+        [0.383 ],
+        [0.3913],
+        [0.3913],
+        [0.4006],
+        [0.408 ],
+        [0.4319],
+        [0.4957],
+        [0.4982],
+        [0.5227],
+        [0.5325],
+        [0.5391],
+        [0.5427],
+        [0.5638],
+        [0.571 ],
+        [0.573 ],
+        [0.6096],
+        [0.6144],
+        [0.6358],
+        [0.6372],
+        [0.6437],
+        [0.644 ],
+        [0.673 ],
+        [0.6753],
+        [0.6757],
+        [0.6825],
+        [0.6873],
+        [0.696 ],
+        [0.696 ],
+        [0.7061],
+        [0.712 ],
+        [0.724 ],
+        [0.7369],
+        [0.7443],
+        [0.745 ],
+        [0.7657],
+        [0.784 ],
+        [0.7868],
+        [0.8142],
+        [0.8214],
+        [0.836 ],
+        [0.8497],
+        [0.8515],
+        [0.9354],
+        [0.9485],
+        [0.9491],
+        [0.9503],
+        [0.967 ],
+        [0.9681],
+        [0.9752],
+        [0.9849],
+        [0.989 ],
+        [0.994 ],
+        [1.0806],
+        [1.1074],
+        [1.109 ],
+        [1.109 ],
+        [1.1134],
+        [1.1281]]),
+ &#39;Qobs1&#39;: array([[ 0.07785993],
+        [ 0.07191426],
+        [ 0.14382852],
+        [ 0.16817745],
+        [ 0.24348923],
+        [ 0.39043215],
+        [ 0.24745301],
+        [ 0.60957246],
+        [ 0.25481431],
+        [ 0.89864514],
+        [ 0.30351216],
+        [ 0.9946252 ],
+        [ 0.42780492],
+        [ 0.4360156 ],
+        [ 0.48131592],
+        [ 0.65911969],
+        [ 0.84938104],
+        [ 1.33494387],
+        [ 0.93431915],
+        [ 0.70498626],
+        [ 0.92242781],
+        [ 0.86268801],
+        [ 1.10900851],
+        [ 1.10900851],
+        [ 1.07078637],
+        [ 1.03624487],
+        [ 1.27831847],
+        [ 1.83381367],
+        [ 2.33891226],
+        [ 2.46971694],
+        [ 2.52973987],
+        [ 2.62515367],
+        [ 1.44281526],
+        [ 1.46404979],
+        [ 3.37544026],
+        [ 3.04219977],
+        [ 4.94509643],
+        [ 4.69990843],
+        [ 4.39214937],
+        [ 4.94509643],
+        [ 5.63422758],
+        [ 4.69990843],
+        [ 5.69878054],
+        [ 5.80778444],
+        [ 5.36214252],
+        [ 5.62516752],
+        [ 6.07647198],
+        [ 7.16311346],
+        [ 7.41792777],
+        [ 6.2800403 ],
+        [ 6.69765265],
+        [ 6.72568222],
+        [ 7.38621754],
+        [ 7.01022487],
+        [ 7.62432736],
+        [ 8.47229277],
+        [ 9.11668985],
+        [ 8.89613391],
+        [ 9.73985241],
+        [10.35338865],
+        [10.05015962],
+        [10.87236047],
+        [11.07026625],
+        [15.00573175],
+        [15.68523658],
+        [15.00573175],
+        [15.82680009],
+        [15.82680009],
+        [15.82680009],
+        [16.84605734],
+        [15.74186198],
+        [17.17165341],
+        [16.84605734],
+        [20.80983554],
+        [20.80983554],
+        [21.65921658],
+        [21.74415468],
+        [21.74415468],
+        [21.57427847]]),
+ &#39;date_of_obs&#39;: array([[array([&#39;9/26/08 16:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/19/08 0:02&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;9/10/08 21:35&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/10/10 17:52&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/20/07 18:22&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/12/06 19:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/13/07 18:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/13/12 21:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/5/12 18:57&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;9/5/12 18:25&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;9/6/07 21:50&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;3/25/14 17:43&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/5/07 21:11&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;8/22/07 23:03&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/2/07 22:05&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;8/4/08 22:44&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;7/30/07 22:05&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/24/06 23:40&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/16/07 20:25&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/29/13 22:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/28/08 19:07&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/10/10 18:50&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/25/07 23:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/25/07 23:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/25/08 20:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/4/09 15:45&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;8/4/10 18:44&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/16/14 18:29&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/11/08 18:44&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/27/10 22:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/29/08 22:40&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/8/14 20:47&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;5/28/08 21:43&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/14/09 18:36&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/22/10 17:34&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/15/08 18:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/31/07 17:05&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/31/07 16:28&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/15/09 15:39&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/30/07 17:48&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/26/06 17:38&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/30/07 17:02&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/26/08 16:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/09 20:47&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/17/09 20:47&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/5/08 21:30&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/2/08 17:12&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;7/24/06 16:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/24/06 16:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/28/14 20:21&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/26/08 3:30&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/9/08 20:45&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/12/08 0:10&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;7/9/10 18:20&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/17/08 16:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/4/08 15:53&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/15/06 19:12&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/10/08 17:29&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/14/09 21:11&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/31/11 18:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/26/09 18:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/20/09 19:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/21/08 21:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/27/06 17:29&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/20/06 22:13&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/27/06 16:44&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/06 17:20&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/06 16:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/06 16:26&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/22/06 17:57&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/20/08 23:40&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/10 16:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/22/06 17:06&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/27/06 0:24&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/27/06 1:28&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/28/06 21:35&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/28/06 21:35&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/28/06 21:57&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/21/06 3:47&#39;], dtype=&#39;&lt;U12&#39;)]], dtype=object)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the dictionary keys</span>
+<span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;h1&#39;, &#39;Qobs1&#39;, &#39;date_of_obs&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can convert this dictionary into a pandas dataframe and select only the columns of data that we want (ignoring the file metadata):
+(Even though we know, that in cases outside of the classroom, people only ignore metadata at their own peril.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Qobs1&#39;</span><span class="p">])),</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">,</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;Qobs1&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_of_obs</th>
+      <th>h1</th>
+      <th>Qobs1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[9/26/08 16:30]</td>
+      <td>0.1805</td>
+      <td>0.07786</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[9/19/08 0:02]</td>
+      <td>0.2197</td>
+      <td>0.071914</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[9/10/08 21:35]</td>
+      <td>0.2406</td>
+      <td>0.143829</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[9/10/10 17:52]</td>
+      <td>0.2407</td>
+      <td>0.168177</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[8/20/07 18:22]</td>
+      <td>0.2565</td>
+      <td>0.243489</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And make sure our <code class="docutils literal notranslate"><span class="pre">date_of_obs</span></code> is being interpreted as a datetime correctly (see documentation <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html">here</a> and <a class="reference external" href="http://strftime.org/">here</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%y %H:%M&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_of_obs</th>
+      <th>h1</th>
+      <th>Qobs1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2008-09-26 16:30:00</td>
+      <td>0.1805</td>
+      <td>0.07786</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2008-09-19 00:02:00</td>
+      <td>0.2197</td>
+      <td>0.071914</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2008-09-10 21:35:00</td>
+      <td>0.2406</td>
+      <td>0.143829</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010-09-10 17:52:00</td>
+      <td>0.2407</td>
+      <td>0.168177</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2007-08-20 18:22:00</td>
+      <td>0.2565</td>
+      <td>0.243489</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="calculating-rating-curves">
+<h2>Calculating rating curves<a class="headerlink" href="#calculating-rating-curves" title="Link to this heading">#</a></h2>
+<p>At stream gauges all over the world, we measure a timeseries of water height at a fixed point, and we generally develop an empirical rating curve to determine discharge, which is volume of flow per unit time, in units of of <span class="math notranslate nohighlight">\(m^3/s\)</span> (cubic meters per second or cms) or <span class="math notranslate nohighlight">\(ft^3/s\)</span> (cubic feet per second of cfs).</p>
+<p>In developing this rating curve, we are trying to solve for a, b, and c in the equation
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s plot all of the data we just read in.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">Qobs1</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f172d435c90&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/1da87a90e829328bf32a2bd733a65e9f5d4cb1fd8586690b3ca7394d50e39b9e.png" src="../../_images/1da87a90e829328bf32a2bd733a65e9f5d4cb1fd8586690b3ca7394d50e39b9e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#And plot the log transform of both variables</span>
+<span class="n">loght</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+<span class="n">logQ</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Qobs1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(stage (m))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(discharge (cms))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loght</span><span class="p">,</span><span class="n">logQ</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f176c110150&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/0513dcdb1c163995331090475c99095b73931686921eb8a171a7a60573e96125.png" src="../../_images/0513dcdb1c163995331090475c99095b73931686921eb8a171a7a60573e96125.png" />
+</div>
+</div>
+</section>
+<section id="inspect-the-data">
+<h2>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h2>
+<p>You can see above that even with a log transform, the data do not fall on a straight line.  If I squint at the graph above, I can imagine two lines through this data, with a break about midway through the data.</p>
+<p>At this point, it’s a good idea to look at your field site and see what physical evidence there is that the rating curve might have a break point.</p>
+<p><img alt="Lyell Fork Tuolumne Plot" src="../../_images/LyellFork_Tuolumne_flowcontrol.png" /></p>
+<p>You can see from the photo above (and from the lecture notes), that at certain flow levels, this river stretch switches from being channel controlled to having a bedrock control, like a weir.  From Open Channel Flow class (and from the lecture notes), we know that this changes the exponent in the stage-discharge equation, which would change the slope of our line here.</p>
+<p>For simplicity, we will consider only the upper end of the rating curve, focusing on flows that are high enough to not be influenced by the pictured bedrock control.</p>
+<hr class="docutils" />
+</section>
+<section id="part-1-linear-regression-of-transformed-variables">
+<h2>PART 1: Linear Regression of Transformed Variables:<a class="headerlink" href="#part-1-linear-regression-of-transformed-variables" title="Link to this heading">#</a></h2>
+<p>As illustrated above, due to the nature of our channel, we would need to separate our variables and fit two lines to it.  For simplicity, we will focus here on the upper portion of the rating curve, looking only at higher flows.  Work by CEE M.S. student Gwyn Perry, the transition between the two slopes is about 0.54.  I also want to ignore two outlier measurements right around this transition, so I choose to look at data above a stage height of 0.59.  You can change this cut-off value and see how it changes the results.  Ideally, we would have a survey of the location that identifies the exact stage when the bedrock control becomes dominant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a level where the transition occurs, where you need different rating curve coefficients.</span>
+<span class="n">h11</span> <span class="o">=</span> <span class="mf">0.59</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we identify the rows in our data frame that correspond to flows with h1 &gt; h11, these correspond to data above the change in channel control.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qobs_now</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Qobs1</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span> <span class="o">&gt;</span> <span class="n">h11</span><span class="p">]</span>
+<span class="n">h_now</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">h1</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span> <span class="o">&gt;</span> <span class="n">h11</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In developing this rating curve, we are trying to solve for a, b, and c in the equation
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span></p>
+<p>When we take the log of both sides, we get
+<span class="math notranslate nohighlight">\(log(Q) = log(a) + c*log(h-b)\)</span>
+Note that we can use linear regression to solve for <span class="math notranslate nohighlight">\(log(a)\)</span> – this would be <span class="math notranslate nohighlight">\(B0\)</span> in earlier code – and for <span class="math notranslate nohighlight">\(c\)</span> – this would be <span class="math notranslate nohighlight">\(B1\)</span> in earlier code.  Note that we cannot directly solve for <span class="math notranslate nohighlight">\(b\)</span>.  We have to guess <span class="math notranslate nohighlight">\(b\)</span> (based on observations in the field or an iterative technique).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># based on field measurements, we know b must be between 10 and 50 cm, </span>
+<span class="c1"># which is the same as 0.1 to 0.5 meters.  </span>
+<span class="c1"># We start with a guess.</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">0.28</span>
+<span class="c1"># and we subtract this value off of the measured stream height</span>
+<span class="n">hobs_minusb</span><span class="o">=</span><span class="n">h_now</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hobs_minusb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36    0.3296
+37    0.3344
+38    0.3558
+39    0.3572
+40    0.3637
+41     0.364
+42     0.393
+43    0.3953
+44    0.3957
+45    0.4025
+46    0.4073
+47     0.416
+48     0.416
+49    0.4261
+50     0.432
+51     0.444
+52    0.4569
+53    0.4643
+54     0.465
+55    0.4857
+56     0.504
+57    0.5068
+58    0.5342
+59    0.5414
+60     0.556
+61    0.5697
+62    0.5715
+63    0.6554
+64    0.6685
+65    0.6691
+66    0.6703
+67     0.687
+68    0.6881
+69    0.6952
+70    0.7049
+71     0.709
+72     0.714
+73    0.8006
+74    0.8274
+75     0.829
+76     0.829
+77    0.8334
+78    0.8481
+Name: h1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#And plot the log transform of both variables</span>
+<span class="n">loght</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">hobs_minusb</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+<span class="c1"># note that the above is taking the log of the observed values minus b</span>
+<span class="n">logQ</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Qobs_now</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(stage (m))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(discharge (cms))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loght</span><span class="p">,</span><span class="n">logQ</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f176c1ce110&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/9653cf3aa9fde898008c5d4c324d053eb3032d7146676dbc74fa885646fe5c2d.png" src="../../_images/9653cf3aa9fde898008c5d4c324d053eb3032d7146676dbc74fa885646fe5c2d.png" />
+</div>
+</div>
+<p>With linear regression, we can only solve for two of the three unknowns in our rating curve equation:
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span>
+which we have log transformed to be
+<span class="math notranslate nohighlight">\(log(Q) = log(a) + c*log(h-b)\)</span></p>
+<p>First, we will assume that b is 0.28 m, as we entered above.   In practice, this is often estimated from field surveys as the maximum height of water in the measuring pool when flow stops.</p>
+<p>We then use the same code from basic linear regresssion (Lab 4.3 in CEE 465: Data Analysis), where our calculated slope will be c, and our calculated intercept will be log(a).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">loght</span>
+<span class="c1"># Note that our x value here includes the log of our measured stage minus b (see above)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">logQ</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">B1</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="c1"># B1 parameter, slope</span>
+<span class="n">B0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">B1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># B0 parameter, y-intercept</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B0 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">B0</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B1 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B0 : 3.4077
+B1 : 1.7662
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just to clarify what we have here.  <span class="math notranslate nohighlight">\(B0 = log(a)\)</span> and <span class="math notranslate nohighlight">\(B1 = c\)</span> and <span class="math notranslate nohighlight">\(x = log(h-b)\)</span>.  If we want to revert to our original equation, we solve for <span class="math notranslate nohighlight">\(a = exp(B0)\)</span> and <span class="math notranslate nohighlight">\(c = B1\)</span> and <span class="math notranslate nohighlight">\(h = exp(x) + b\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, how do we find 95% confidence intervals?  We do this for our estimates of logQ</span>
+<span class="c1"># Again, borrowing from Lab 4.3</span>
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">B0</span> <span class="o">+</span> <span class="n">B1</span><span class="o">*</span><span class="n">x</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_predicted</span><span class="p">)</span>
+<span class="c1"># sum of squared errors</span>
+<span class="n">sse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># standard error of regression</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sse</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># create an array of x values</span>
+<span class="n">p_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># using our model parameters to predict y values</span>
+<span class="n">p_y</span> <span class="o">=</span> <span class="n">B0</span> <span class="o">+</span> <span class="n">B1</span><span class="o">*</span><span class="n">p_x</span>
+
+<span class="c1"># calculate the standard error of the predictions</span>
+<span class="n">sigma_ep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="o">+</span> <span class="p">(</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">p_x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># our chosen alpha</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># compute our degrees of freedom with the length of the predicted dataset</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_x</span><span class="p">)</span>
+<span class="n">dof</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="c1"># get the t-value for our alpha and degrees of freedom</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
+
+<span class="c1"># compute the upper and lower limits at each of the p_x values</span>
+<span class="n">p_y_lower</span> <span class="o">=</span> <span class="n">p_y</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sigma_ep</span>
+<span class="n">p_y_upper</span> <span class="o">=</span> <span class="n">p_y</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sigma_ep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First let&#39;s make a plot in the log-transformed space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(stage (m))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(discharge (cms))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loght</span><span class="p">,</span><span class="n">logQ</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_x</span><span class="p">,</span><span class="n">p_y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_x</span><span class="p">,</span><span class="n">p_y_lower</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_x</span><span class="p">,</span><span class="n">p_y_upper</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f172cf113d0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/236349f9aa525f75f1b5a185b3e7b415035c04bffed5e0b744aa96f97745c7da.png" src="../../_images/236349f9aa525f75f1b5a185b3e7b415035c04bffed5e0b744aa96f97745c7da.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now we transform each piece back into the original form</span>
+<span class="n">Q_predict</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_y</span><span class="p">)</span>
+<span class="n">Q_predict_upper</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_y_upper</span><span class="p">)</span>
+<span class="n">Q_predict_lower</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_y_lower</span><span class="p">)</span>
+<span class="n">x_topredict</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+<span class="c1"># Plot the original data and then the prediction lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span><span class="n">Qobs_now</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_topredict</span><span class="p">,</span><span class="n">Q_predict</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_topredict</span><span class="p">,</span><span class="n">Q_predict_lower</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_topredict</span><span class="p">,</span><span class="n">Q_predict_upper</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f172cf972d0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/b266baec67b162da779826b3de616b1192874fe77763e028c2472b10c5fd72be.png" src="../../_images/b266baec67b162da779826b3de616b1192874fe77763e028c2472b10c5fd72be.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="module7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7) Streams, rivers, and channels</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab7-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 7-2: Mixing and dye-dilution discharge</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-the-provided-data">Load in the provided data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-rating-curves">Calculating rating curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-linear-regression-of-transformed-variables">PART 1: Linear Regression of Transformed Variables:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

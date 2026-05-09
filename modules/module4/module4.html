@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4) Watershed Hydrology</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module4/module4';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5) Hydrology, Flooding and Statistics" href="../module5/module5.html" />
+    <link rel="prev" title="Lab 3-5 (BONUS): Gaussian Smoke Stack Reflections" href="../module3/lab3-5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt=" - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Fluid Flows in the Environment
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus: CEE 348</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project: CEE 348</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Key Concepts in Environmental Flows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Atmospheric Structure and Thermodynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: Atmospheric Thermodynamics and Stability</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Mixing and dispersion in the atmosphere</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1: Gaussian Smoke Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Wind profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3:  Stability classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-4.html">Lab 3-4:  Combine all the steps and solve a problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-5.html">Lab 3-5 (BONUS): Gaussian Smoke Stack Reflections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4) Watershed Hydrology</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Hydrology, Flooding and Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Calculating the Water Balance for the area draining to Cedar Lake, Washington</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Flood Probability</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-3.html">Lab 5-3: Winds and Orographic Precipitation</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Groundwater Flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Contaminant Transport in Groundwater</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Streams, rivers, and channels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Rating Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Mixing and dye-dilution discharge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries Lab</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">Some more python to get you started</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/edit/main/book/modules/module4/module4.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/issues/new?title=Issue%20on%20page%20%2Fmodules/module4/module4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module4/module4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4) Watershed Hydrology</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-preparing-for-watershed-delineation">Lab 4: Preparing for watershed delineation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-4">Homework 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-delineate-the-cedar-river-watershed">Problem 1: Delineate the Cedar River Watershed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-monthly-water-balance-in-the-cedar-river-watershed">Problem 2: Monthly Water Balance in the Cedar River Watershed</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="watershed-hydrology">
+<h1>4) Watershed Hydrology<a class="headerlink" href="#watershed-hydrology" title="Link to this heading">#</a></h1>
+<section id="lab-4-preparing-for-watershed-delineation">
+<h2>Lab 4: Preparing for watershed delineation<a class="headerlink" href="#lab-4-preparing-for-watershed-delineation" title="Link to this heading">#</a></h2>
+<p>Most of hydrology involves solving for the mass balance of water within a control volume, but the control volume has a unique shape, defined as all locations upstream of a designated spot on a river, where all droplets of water falling within that shape will flow downhill and reach the designated spot.</p>
+<p>We will be delineating Seattle’s Cedar River Watershed as homework this week.  For homework, I would like you to use the USGS StreamStats application, but I am also providing some additional resources for other software if you are interested in checking them out. GIS is a very marketable skill, and consultants are often asked to delineate watersheds. However, the software can be tricky to get installed, so we will not have homework requiring it.  To get a good 3-D perspective of the topography, here is a useful <a class="reference external" href="https://www.youtube.com/watch?v=DOSm-gqGEBU">Youtube Video about the Cedar River Geography and Geology</a>.</p>
+<p><strong>USGS StreamStats</strong> (required for homework):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://streamstats.usgs.gov/ss/">StreamStats</a> is a Web-application that provides access to many GIS-analytical tools that are useful to understand watershed characteristics and hydrology, as well as mapping out locations of USGS gauges and providing associated streamflow data.</p></li>
+<li><p><a class="reference external" href="https://www.usgs.gov/streamstats/identify-study-area-and-delineate-basin">Watershed Delineation</a> can be completed very easily following the linked <a class="reference external" href="https://www.usgs.gov/streamstats/identify-study-area-and-delineate-basin">directions</a>.  However, many of the steps involved are not clear from following this process, so if you choose this route, the homework asks you to explain the processes of how the calculation took place.</p></li>
+</ul>
+<p>Arc-GIS:</p>
+<ul class="simple">
+<li><p>Arc-GIS is proprietary software, but the UW has permission to use it.  You can access Arc-GIS in the CEE computer lab, or through <a class="reference external" href="https://www.ce.washington.edu/current/computing/computers-available-remote-desktop">remote login</a> to the CEE computers.  If you have a PC, you may also install Arc-GIS on your laptop by following the instructions at this <a class="reference external" href="https://sites.uw.edu/arcgis/software/arcgis-desktop/arcgis-pro/">link</a>.  Note that this also requires installing VPN software to connect to the UW network securely, which enables the licensing through UW.</p></li>
+<li><p>For further background on Arc-GIS, I recommend class material from David Tarboton from Utah State University and David Maidment from U. Texas Austin, available <a class="reference external" href="http://hydrology.usu.edu/dtarb/giswr/2018/">here</a>.  For watershed delineation, check out exercise 4 from class 11, see minute 10 of this <a class="reference external" href="https://www.youtube.com/watch?v=hE2hBMRJq3U&amp;amp;feature=youtu.be">video</a>.</p></li>
+<li><p>To delineate the Cedar River watershed, follow the video directions for <a class="reference external" href="https://youtu.be/MR6_IenN9vI">ArcGIS</a>. Go to the class <a class="reference external" href="https://canvas.uw.edu">canvas page</a> and download the relevant files.</p></li>
+</ul>
+<p>qGIS:</p>
+<ul class="simple">
+<li><p>qGIS is open source software and can be installed locally without license issues.  If you want to use a Mac, this is your only GIS choice.  You can download and install <a class="reference external" href="https://qgis.org/en/site/forusers/download.html">here</a>.</p></li>
+<li><p>For further background, the authors of QGIS for Hydrological Applications, Kurt Menke and Hans van der Kwast, put on a special QGIS Hydro Webinar Series in spring 2020, including webinars on <a class="reference external" href="https://www.youtube.com/watch?v=hPLqy-NBgu8">how to georeference a physical map</a>, <a class="reference external" href="https://www.youtube.com/watch?v=84cq3CmBwck">how to get tables and coordinates into qGIS and interpolate to rasters</a>, <a class="reference external" href="https://www.youtube.com/watch?v=XFFAS-UctBs">spatial analysis</a>, and <a class="reference external" href="https://www.youtube.com/watch?v=2Ub0c7Ss-T4">stream and catchment delineation</a>.</p></li>
+<li><p>To delinear the Cedar River watershed, follow the video directions for qGIS in <a class="reference external" href="https://youtu.be/u9tiOomhgIg">Part 1</a> and <a class="reference external" href="https://youtu.be/IXkFH0elFZk">Part 2</a>. Go to the class <a class="reference external" href="https://canvas.uw.edu">canvas page</a> and download the relevant files.</p></li>
+</ul>
+<p>Python:</p>
+<ul class="simple">
+<li><p>If you feel comfortable with Python, you can use it to delineate watersheds, using the <a class="reference external" href="https://github.com/pysheds/pysheds">pysheds</a> Python package and following the step-by-step directions <a class="reference external" href="https://medium.com/&#64;ilmachairas/basin-delineation-on-python-5e9da00a3534">here</a>.</p></li>
+<li><p><a class="reference external" href="https://pythongis.org/part3/chapter-12/nb/00-watershed-analysis-with-pysheds.html">Example using pysheds</a></p></li>
+<li><p>You can download an example jupyter notebook to try on our jupyterhub <a class="reference internal" href="1_Pysheds_delineation.html"><span class="std std-doc">here</span></a>.  This was put together by Emma Boudreau following the information and links above.  Reach out if you need help with the pip install on the jupyterhub.</p></li>
+</ul>
+</section>
+<section id="homework-4">
+<h2>Homework 4<a class="headerlink" href="#homework-4" title="Link to this heading">#</a></h2>
+<section id="problem-1-delineate-the-cedar-river-watershed">
+<h3>Problem 1: Delineate the Cedar River Watershed<a class="headerlink" href="#problem-1-delineate-the-cedar-river-watershed" title="Link to this heading">#</a></h3>
+<p><strong>A.</strong>  Using the <a class="reference external" href="https://streamstats.usgs.gov/ss/">USGS StreamStats software</a>, find the general vicinity of the Cedar River on the map and then choose a point on the stream between their labeled USGS gauge 12116400 and USGS gauge 12116500 (Note that the latter has better gauge records but does not appear on the plot exactly by the stream – you must click on a stream pixel).</p>
+<p><strong>B.</strong> Delineate the Cedar River Watershed above Cedar Falls (this corresponds to USGS gauge 12116400 or 12116500) and calculate its area.  Export your shape file as a .kml file and then import it to <a class="reference external" href="https://earth.google.com/">Google Earth</a>.  Click on the arrow to expand the properties and get the info for the shape.  Also, in properties, change the fill to 0 and make the outline a width and color you can see.</p>
+<p><strong>C.</strong> When completed, take a screen shot of your delineated watershed that shows that it’s on your computer to submit with your homework along with the area you estimated.  Use 3-D mode in Google Earth to rotate and zoom in and out and create some snapshots to annotate to show the physical process of how the edges of the watershed were determined (following our discussion in class).</p>
+</section>
+<section id="problem-2-monthly-water-balance-in-the-cedar-river-watershed">
+<h3>Problem 2: Monthly Water Balance in the Cedar River Watershed<a class="headerlink" href="#problem-2-monthly-water-balance-in-the-cedar-river-watershed" title="Link to this heading">#</a></h3>
+<p>Download the <a class="reference download internal" download="" href="../../_downloads/01cf271ac2045b8098e90c6fc183272a/Cedar_average_monthly_waterbalance.xlsx"><span class="xref download myst">Cedar_average_monthly_waterbalance.xlsx</span></a> data file.</p>
+<p>The file contains long-term data relevant to the watershed that is Seattle’s primary water supply.  Note that the temperature and precipitation values are climatological averages from 1898 to 2016 at Cedar Lake, Washington.  The streamflow is monthly average values from 2001 to 2023 at USGS gauge 12116500 (which is listed as having an area upstream of 218 km^2, which is slightly but not very different from what you should have calculated for Part 1, but use the 218 value here).  The ET values are estimated from monthly graphs produced by NOAA, available <a class="reference external" href="http://www.cpc.ncep.noaa.gov/soilmst/e.shtml">here</a>.  ET values from pan evaporation estimates are also included in the file for your reference, but you do not need to use then in your calculations.   Remember that the Cedar River has the Chester Morse Reservoir above this location and also, as we discussed in lecture, some snow.  The total precipitation values represent rain and snow together, but only at one location in the watershed. Note: You may also want to look at <a class="reference external" href="https://mountain-hydrology-research-group.github.io/Fluid_Flows/modules/module5.html">Lab 5-1</a> for help with this problem in Python, but you are also welcome to use Excel.</p>
+<p><strong>A.</strong> Convert all the units to mm/month and plot the component parts of the basin water balance each month all in the same units (mm/month).</p>
+<p><strong>B.</strong> Determine the residual storage term each month (where storage is the sum of water in minus water out).  Calculate the total residual storage over the year.</p>
+<p><strong>C.</strong> Discuss what you think the storage term means physically and where you think there might be errors in the water balance terms.</p>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../module3/lab3-5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 3-5 (BONUS): Gaussian Smoke Stack Reflections</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../module5/module5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5) Hydrology, Flooding and Statistics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-preparing-for-watershed-delineation">Lab 4: Preparing for watershed delineation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-4">Homework 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-delineate-the-cedar-river-watershed">Problem 1: Delineate the Cedar River Watershed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-monthly-water-balance-in-the-cedar-river-watershed">Problem 2: Monthly Water Balance in the Cedar River Watershed</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

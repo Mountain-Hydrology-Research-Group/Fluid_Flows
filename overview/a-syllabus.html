@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Syllabus: CEE 348</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'overview/a-syllabus';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Course Project: CEE 348" href="b-project.html" />
+    <link rel="prev" title="Fluid Flows in the Environment" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=" - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Fluid Flows in the Environment
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Syllabus: CEE 348</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b-project.html">Course Project: CEE 348</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module1/module1.html">1) Key Concepts in Environmental Flows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/lab1-1.html">Lab 1-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/lab1-2.html">Lab 1-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module2/module2.html">2) Atmospheric Structure and Thermodynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-1.html">Lab 2-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-2.html">Lab 2-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-3.html">Lab 2-3: Atmospheric Thermodynamics and Stability</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module3/module3.html">3) Mixing and dispersion in the atmosphere</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-1.html">Lab 3-1: Gaussian Smoke Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-2.html">Lab 3-2: Wind profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-3.html">Lab 3-3:  Stability classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-4.html">Lab 3-4:  Combine all the steps and solve a problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-5.html">Lab 3-5 (BONUS): Gaussian Smoke Stack Reflections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module4/module4.html">4) Watershed Hydrology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module5/module5.html">5) Hydrology, Flooding and Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/lab5-1.html">Lab 5-1: Calculating the Water Balance for the area draining to Cedar Lake, Washington</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/lab5-2.html">Lab 5-2: Flood Probability</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/lab5-3.html">Lab 5-3: Winds and Orographic Precipitation</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module6/module6.html">6) Groundwater Flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module6/lab6-2.html">Lab 6-2: Contaminant Transport in Groundwater</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module7/module7.html">7) Streams, rivers, and channels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/lab7-1.html">Lab 7-1: Rating Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/lab7-2.html">Lab 7-2: Mixing and dye-dilution discharge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module8/module8.html">8) Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module8/lab8-2.html">Lab 8-2: Timeseries Lab</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/some-python-tips.html">Some more python to get you started</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/edit/main/book/overview/a-syllabus.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/issues/new?title=Issue%20on%20page%20%2Foverview/a-syllabus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/overview/a-syllabus.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Syllabus: CEE 348</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#office-hours">Office Hours</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks">Textbooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics-and-grading">Logistics and Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-resources">Computing Resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">Lectures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#labs">Labs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-assignments">Homework Assignments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-policy">Grading Policy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">Schedule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campus-community-resources">Campus Community Resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct">Conduct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-and-accommodations">Access and Accommodations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#religious-accommodations">Religious Accommodations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#health-and-safety">Health and Safety</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="syllabus-cee-348">
+<h1>Syllabus: CEE 348<a class="headerlink" href="#syllabus-cee-348" title="Link to this heading">#</a></h1>
+<section id="course-overview">
+<h2>Course Overview<a class="headerlink" href="#course-overview" title="Link to this heading">#</a></h2>
+<p><strong>Fluid Flows in the Environment - Spring Quarter, 2026</strong></p>
+<p>The course introduces the fluid flows of the environment. We will survey the range of flow processes that influence the transport and dispersion of contaminants and other material in the environment and develop a framework for predicting their impact.<br />
+Since each of the flows considered are complex, this course aims to provide only an introduction to each of the key flows. It emphasizes how the core principles of fluid mechanics apply to multiple aspects of the environmental system, as well as the key aspects of fluid flows in the environment that determine the impact of pollutants or of too much or too little water.</p>
+<p>| <strong>CEE 348</strong> | SLN 11720 | 4 units |</p>
+<p><strong>Instructor:</strong>      Jessica Lundquist, <a class="reference external" href="mailto:jdlund&#37;&#52;&#48;uw&#46;edu">jdlund<span>&#64;</span>uw<span>&#46;</span>edu</a></p>
+<p><strong>TA:</strong>            Kathryn Farabaugh, <a class="reference external" href="mailto:kfara&#37;&#52;&#48;uw&#46;edu">kfara<span>&#64;</span>uw<span>&#46;</span>edu</a></p>
+<p><strong>Lectures/Lab:</strong>      Tuesdays &amp; Thursdays: 10:30 am - 12:20 pm (Pacific Time)</p>
+<p>The room location, and the Zoom link (if needed) to remotely attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the <a class="reference external" href="https://canvas.uw.edu/">course Canvas page</a> (UW NetID login required).</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of the course, students should be able to</p>
+<ul class="simple">
+<li><p>Understand common terminology in statistics and data analysis and know how to search for more detailed information as needed</p></li>
+<li><p>Read, modify, and write computer programs to analyze data</p></li>
+<li><p>Apply statistics and computer-based data analysis techniques to real observations (sets of numbers) in order to solve real world problems</p></li>
+</ul>
+</section>
+<section id="office-hours">
+<h3>Office Hours<a class="headerlink" href="#office-hours" title="Link to this heading">#</a></h3>
+<p>Jessica: Thursdays, immediately after class; or by appointment</p>
+<p>Kathryn: TBA</p>
+</section>
+<section id="textbooks">
+<h3>Textbooks<a class="headerlink" href="#textbooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Recommended</strong>: <em>Ask Instructor</em>, Various texts for different parts of the course</p></li>
+<li><p><strong>Additional Course Materials</strong> are available on the <a class="reference external" href="https://canvas.uw.edu/">UW Canvas site</a> (UW NetID login required)</p></li>
+</ul>
+</section>
+</section>
+<section id="logistics-and-grading">
+<h2>Logistics and Grading<a class="headerlink" href="#logistics-and-grading" title="Link to this heading">#</a></h2>
+<section id="computing-resources">
+<h3>Computing Resources<a class="headerlink" href="#computing-resources" title="Link to this heading">#</a></h3>
+<p>For some lab activities and assignments, we will be using a <a class="reference external" href="https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html">JupyterHub</a> computing environment, and programming with <a class="reference external" href="https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/a-learning-python.html">python</a>.</p>
+<p>If you need access to a laptop computer (such as if yours breaks) you may check one out from the <a class="reference external" href="https://stlp.uw.edu/">Student Technology Loan Program</a>. Please contact me if you need help accessing a computer reliably.</p>
+</section>
+<section id="lectures">
+<h3>Lectures<a class="headerlink" href="#lectures" title="Link to this heading">#</a></h3>
+<p>The first hour and a half, twice a week, is reserved for lectures and discussions.  Lecture slides will be available on Canvas, written notes on OneNote (with link posted on canvas),  along with any additional files for reading.</p>
+</section>
+<section id="labs">
+<h3>Labs<a class="headerlink" href="#labs" title="Link to this heading">#</a></h3>
+<p>On Tuesdays, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (practice problems, jupyter notebooks and data files) can be downloaded directly from the class website or from canvas. (<a class="reference external" href="https://mountain-hydrology-research-group.github.io/Fluid_Flows/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub">GitHub Option</a>)</p>
+<p>We will use classroom space and Slack to work in small groups on Lab excercises. Contact the instructor or TA to be added to the Slack workspace.</p>
+</section>
+<section id="homework-assignments">
+<h3>Homework Assignments<a class="headerlink" href="#homework-assignments" title="Link to this heading">#</a></h3>
+<p>Homework assignments will be given out on Tuesdays at the beginning of class, and will be <strong>due the following week on Thursday at the beginning of class (10:00 am, Pacific Time)</strong>. Homework questions are posted on the class website along with links to any data files you might need.</p>
+<p>You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work.</p>
+<p>For hand-done homework calculations, please scan or take a picture of your work and upload to canvas.</p>
+<p>For homework using Jupyter notebooks, make sure that your name and the assignment number are at the top of your notebook file in markdown text. Your answers should be clearly labeled and written in markdown cells of the notebook.</p>
+<p>Submit your completed homework assignments via Canvas by uploading:</p>
+<ul class="simple">
+<li><p>Your original .ipynb jupyter notebook file(s)</p>
+<ul>
+<li><p>To download your notebook file, right click on the file in the navigation pane on JupyterHub, then click <em>Download</em></p></li>
+</ul>
+</li>
+<li><p>A PDF copy of the jupyter notebook file(s)</p>
+<ul>
+<li><p>To save your notebook as a PDF, go to <em>File</em> &gt; <em>Export Notebook As…</em> &gt; <em>Export Notebook to PDF</em>, this will download a PDF file copy of your notebook to your personal computer which you can upload to Canvas</p></li>
+</ul>
+</li>
+</ul>
+<p>Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at midnight (Pacific Time). Homework handed in late will be deducted 10% per weekday (i.e. a late assignment that would receive a 10 if handed in on time on Thursday will be assigned a grade of 9 if handed in on Friday and 8 if handed in on Monday).   Late homework assignments will not be accepted after midnight (Pacific Time) on the Monday following the due date.  Everyone’s lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.</p>
+<p>Homework solutions will be posted in the Solutions folder on <a class="reference external" href="https://canvas.uw.edu/">Canvas</a> by the Tuesday after the assignment was turned in.</p>
+</section>
+<section id="final-project">
+<h3>Final Project<a class="headerlink" href="#final-project" title="Link to this heading">#</a></h3>
+<p>Each person will be responsible for creating a 3 to 5-minute video explaining one of the concepts we learned in class.  We will view these videos during the regularly scheduled final exam time.</p>
+</section>
+<section id="grading-policy">
+<h3>Grading Policy<a class="headerlink" href="#grading-policy" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Exams (three at 20% each): 60%</strong></p>
+<ul>
+<li><p>Participation includes discussions in class, on Slack, and providing feedback on student presentations</p></li>
+</ul>
+</li>
+<li><p><strong>Homework assignments: 25%</strong></p>
+<ul>
+<li><p>Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.</p></li>
+</ul>
+</li>
+<li><p><strong>Final Project: 15%</strong></p>
+<ul>
+<li><p>See the <a class="reference internal" href="#/overview/b-project.html"><span class="xref myst">CEE 348 course project page</span></a> for grading rubric.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="schedule">
+<h2>Schedule<a class="headerlink" href="#schedule" title="Link to this heading">#</a></h2>
+<p><strong>This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Week</p></th>
+<th class="head"><p>Lecture Dates</p></th>
+<th class="head"><p>Lecture Topics</p></th>
+<th class="head"><p>Labs</p></th>
+<th class="head"><p>Assignments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>3/31 <br /> 4/2</p></td>
+<td><p>Key concepts in environmental flows</p></td>
+<td><p>Lab 1</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2</strong></p></td>
+<td><p>4/7 <br /> 4/9</p></td>
+<td><p>Atmospheric structure and thermodynamics</p></td>
+<td><p>Lab 2</p></td>
+<td><p><br /><strong>HW1 Due</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p>4/14 <br /> 4/16</p></td>
+<td><p>Mixing and Dispersion in the Atmosphere</p></td>
+<td><p>Lab 3</p></td>
+<td><p><br /><strong>HW2 Due</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4</strong></p></td>
+<td><p>4/21 <br /> 4/23</p></td>
+<td><p>Hydrology</p></td>
+<td><p>Review</p></td>
+<td><p><br /> <strong>Exam 1</strong> &amp; <strong>HW3 Due</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>4/28 <br /> 4/30</p></td>
+<td><p>Hydrology</p></td>
+<td><p>Lab 4</p></td>
+<td><p><br /> <strong>HW4 Due</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6</strong></p></td>
+<td><p>5/5 <br /> 5/7</p></td>
+<td><p>Flooding and Statistics</p></td>
+<td><p>Lab 5</p></td>
+<td><p><br /> <strong>HW5 Due</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7</strong></p></td>
+<td><p>5/12 <br /> 5/14</p></td>
+<td><p>Groundwater Flow</p></td>
+<td><p>Lab 6</p></td>
+<td><p><br /> <strong>Exam 2</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8</strong></p></td>
+<td><p>5/19 <br /> 5/21</p></td>
+<td><p>Streams, Rivers, and Channels</p></td>
+<td><p></p></td>
+<td><p><br />  <strong>HW6 Due</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>5/26 <br /> 5/28</p></td>
+<td><p><br /> Mixing and Dispersion in Rivers</p></td>
+<td><p>Lab 7</p></td>
+<td><p><br /> <strong>HW7 Due</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>10</strong></p></td>
+<td><p>6/2 <br /> 6/4</p></td>
+<td><p>Review (Estuaries if time)</p></td>
+<td><p>Review</p></td>
+<td><p>Lab 8=Review &amp; EIT <br />  <strong>Exam 3</strong> &amp; <strong>HW8 Due</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Finals Week</strong></p></td>
+<td><p>6/8</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p><strong>CEE 348 - Final Project Presentations</strong> <br /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>
+<section id="campus-community-resources">
+<h3>Campus Community Resources<a class="headerlink" href="#campus-community-resources" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/">Student Resources</a> from the <a class="reference external" href="https://grad.uw.edu/equity-inclusion-and-diversity/go-map/">UW Graduate Opportunities and Minority Achievement Program (GO-MAP)</a>.</p></li>
+<li><p>The <a class="reference external" href="https://depts.washington.edu/qcenter/wordpress/">Q Center</a></p></li>
+<li><p>Review the <a class="reference external" href="https://www.washington.edu/coronavirus/pack-pledge/">Husky PACK Pledge</a> for informaiton about protecting yourselves and others from COVID-19.</p></li>
+<li><p>The <a class="reference external" href="https://www.udistrictfoodbank.org/">University District Food Bank</a></p></li>
+<li><p>King County COVID-19 <a class="reference external" href="https://www.kingcounty.gov/depts/community-human-services/COVID/child-care.aspx">Child Care Financial Support</a></p></li>
+</ul>
+</section>
+<section id="conduct">
+<h3>Conduct<a class="headerlink" href="#conduct" title="Link to this heading">#</a></h3>
+<p>The University takes academic integrity very seriously. Behaving with integrity is part of our responsibility to our shared learning community. One example of misconduct I have observed in this particular class in the past is plagiarism (representing the work of others as your own without giving appropriate credit to the original author(s)). <strong>If you’re uncertain about if something is academic misconduct, ask me. I am willing to discuss questions you might have.</strong></p>
+<p><a class="reference external" href="https://www.washington.edu/cssc/">Community Standards &amp; Student Conduct</a></p>
+<p>The University of Washington Student Conduct Code (WAC 478-121) defines prohibited academic and behavioral conduct and describes how the University holds students accountable as they pursue their academic goals. Allegations of misconduct by students may be referred to the appropriate campus office for investigation and resolution. More information can be found online at <a class="reference external" href="https://www.washington.edu/studentconduct/">https://www.washington.edu/studentconduct/</a></p>
+</section>
+<section id="access-and-accommodations">
+<h3>Access and Accommodations<a class="headerlink" href="#access-and-accommodations" title="Link to this heading">#</a></h3>
+<p>If you have already established accommodations with Disability Resources for Students (DRS), please communicate your approved accommodations to me at your earliest convenience so we can discuss your needs in this course. If you have not yet established services through DRS, but have a temporary health condition or permanent disability that requires accommodations (conditions include but not limited to; mental health, attention-related, learning, vision, hearing, physical or health impacts), you are welcome to contact DRS at 206-543-8924 or <a class="reference external" href="mailto:uwdrs&#37;&#52;&#48;uw&#46;edu">uwdrs<span>&#64;</span>uw<span>&#46;</span>edu</a> or <a class="reference external" href="https://depts.washington.edu/uwdrs/">disability.uw.edu</a>. DRS offers resources and coordinates reasonable accommodations for students with disabilities and/or temporary health conditions.  Reasonable accommodations are established through an interactive process between you, your instructor(s) and DRS.  It is the policy and practice of the University of Washington to create inclusive and accessible learning environments consistent with federal and state law.</p>
+</section>
+<section id="religious-accommodations">
+<h3>Religious Accommodations<a class="headerlink" href="#religious-accommodations" title="Link to this heading">#</a></h3>
+<p>Washington state law requires that UW develop a policy for accommodation of student absences or significant hardship due to reasons of faith or conscience, or for organized religious activities. The UW’s policy, including more information about how to request an accommodation, is available at <a class="reference external" href="https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/">Religious Accommodations Policy (https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/)</a>. Accommodations must be requested within the first two weeks of this course using the <a class="reference external" href="https://registrar.washington.edu/students/religious-accommodations-request/">Religious Accommodations Request form (https://registrar.washington.edu/students/religious-accommodations-request/)</a>.</p>
+</section>
+<section id="health-and-safety">
+<h3>Health and Safety<a class="headerlink" href="#health-and-safety" title="Link to this heading">#</a></h3>
+<p>Call SafeCampus at 206-685-7233 (206-685-SAFE) anytime – no matter where you work or study – to anonymously discuss safety and well-being concerns for yourself or others. SafeCampus’s team of caring professionals will provide individualized support, while discussing short- and long-term solutions and connecting you with additional resources when requested.</p>
+<p>Mental health resources are available at <a class="reference external" href="https://wellbeing.uw.edu/topic/mental-health/">wellbeing.uw.edu</a>. The <a class="reference external" href="https://www.washington.edu/counseling/">UW Counseling Center</a> is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. Also see their <a class="reference external" href="https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/31/2020/03/10140856/Coping-with-COVID-19-Related-Stress5.pdf">flyer</a> for tips on coping with COVID-19 related stress. Please review the <a class="reference external" href="https://www.ehs.washington.edu/covid-19-prevention-and-response/face-covering-requirements">COVID-19 face cover policy</a> .</p>
+<p>Additionally, if you’re thinking about suicide, are worried about a friend or loved one, or would like emotional support, the Lifeline network is available 24/7 across the United States: National Suicide Prevention Lifeline (1-800-273-8255), Forefront Suicide Prevention (866-598-3978), and Crisis Text Line (741741). If the person you are concerned about is in immediate danger of killing them self and/or refuses to stay safe with you, call or text 911.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./overview"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fluid Flows in the Environment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="b-project.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Course Project: CEE 348</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#office-hours">Office Hours</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks">Textbooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics-and-grading">Logistics and Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-resources">Computing Resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">Lectures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#labs">Labs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-assignments">Homework Assignments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-policy">Grading Policy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">Schedule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campus-community-resources">Campus Community Resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct">Conduct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-and-accommodations">Access and Accommodations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#religious-accommodations">Religious Accommodations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#health-and-safety">Health and Safety</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

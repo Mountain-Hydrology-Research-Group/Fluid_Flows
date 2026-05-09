@@ -1,0 +1,1062 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 5-3: Winds and Orographic Precipitation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module5/lab5-3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6) Groundwater Flow" href="../module6/module6.html" />
+    <link rel="prev" title="Lab 5-2: Flood Probability" href="lab5-2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt=" - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Fluid Flows in the Environment
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus: CEE 348</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project: CEE 348</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Key Concepts in Environmental Flows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Atmospheric Structure and Thermodynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: Atmospheric Thermodynamics and Stability</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Mixing and dispersion in the atmosphere</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1: Gaussian Smoke Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Wind profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3:  Stability classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-4.html">Lab 3-4:  Combine all the steps and solve a problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-5.html">Lab 3-5 (BONUS): Gaussian Smoke Stack Reflections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Watershed Hydrology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module5.html">5) Hydrology, Flooding and Statistics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lab5-1.html">Lab 5-1: Calculating the Water Balance for the area draining to Cedar Lake, Washington</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="lab5-2.html">Lab 5-2: Flood Probability</a></li>
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 5-3: Winds and Orographic Precipitation</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Groundwater Flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Contaminant Transport in Groundwater</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Streams, rivers, and channels</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Rating Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Mixing and dye-dilution discharge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries Lab</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">Some more python to get you started</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/edit/main/book/modules/module5/lab5-3.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/Fluid_Flows/issues/new?title=Issue%20on%20page%20%2Fmodules/module5/lab5-3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module5/lab5-3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 5-3: Winds and Orographic Precipitation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 5-3: Winds and Orographic Precipitation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pause-and-think">Pause and think</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-our-equations">Continuing with our equations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-with-this-we-can-calculate-the-instantaneous-condensation-rates-along-the-track">And with this, we can calculate the instantaneous condensation rates along the track</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#does-this-plot-look-reasonable-to-you">Does this plot look reasonable to you?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-reasons-can-you-think-of-why">What reasons can you think of why?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-3-winds-and-orographic-precipitation">
+<h1>Lab 5-3: Winds and Orographic Precipitation<a class="headerlink" href="#lab-5-3-winds-and-orographic-precipitation" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Our goal here is to combine what we learned in Lab 2 regarding atmospheric thermodyanamics to better understand rain rates along a mountain.  This lab draws on the Precipitation lecture notes, as well as on a paper written by Gerard Roe in 2005.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that wind calculations will be added in a future iteration, for now wind information will be given.</p>
+<p><strong>Saturated vapor pressure is a function of air temperature.</strong>
+In lab 2 (and in the Shuttleworth book), we used the formula, as shown here, to calculate saturated vapor pressure in units of kPa with an input of temperature in degrees C.
+$<span class="math notranslate nohighlight">\( e_{sat} = 0.6108*exp(\frac{17.27T}{237.3+T}) \)</span>$</p>
+<p>In Gerard Roe’s paper, he describes this equation with the <a class="reference external" href="https://en.wikipedia.org/wiki/Clausius%E2%80%93Clapeyron_relation">Clausius-Clapyron</a> relationship, which he writes as
+$<span class="math notranslate nohighlight">\( e_{sat} = 6.112*exp(\frac{aT}{b+T}) \)</span><span class="math notranslate nohighlight">\(
+where here \)</span>e_{sat}<span class="math notranslate nohighlight">\( is in millibars or hPa, a = 17.67, and b=243.5\)</span>^\circ$C.</p>
+<p>Now, it’s always somewhat frustrating when multiple reputable sources have different equations for the same thing.  It’s a good idea to pause and check to see if they’re really quite close to the same thing.  One way to do this is a quick plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_curve</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+<span class="n">T_curve</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">T_curve</span><span class="p">)</span>
+<span class="c1"># We turn it into a numpy array so that we can use numpy to calculate esat for the entire array</span>
+
+<span class="n">esat1</span> <span class="o">=</span> <span class="mf">0.6108</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="mf">17.27</span><span class="o">*</span><span class="n">T_curve</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">237.3</span><span class="o">+</span><span class="n">T_curve</span><span class="p">))</span>
+<span class="c1"># this formula outputs esat in kPa, if we multiply by 10, we get hPa, easier for comparison</span>
+<span class="n">esat1</span> <span class="o">=</span> <span class="n">esat1</span><span class="o">*</span><span class="mi">10</span>
+
+<span class="n">a</span><span class="o">=</span><span class="mf">17.67</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">243.5</span>
+<span class="n">esat2</span> <span class="o">=</span> <span class="mf">6.112</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="n">T_curve</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">T_curve</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Use the plot() function to plot the year on the x-axis, peak flow values on</span>
+<span class="c1"># the y-axis with an open circle representing each peak flow value.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_curve</span><span class="p">,</span> <span class="c1"># our x value</span>
+         <span class="n">esat1</span> <span class="c1"># our y value</span>
+         <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_curve</span><span class="p">,</span> <span class="c1"># our x value</span>
+         <span class="n">esat2</span> <span class="c1"># our y value</span>
+         <span class="p">)</span>
+<span class="c1"># Label the axes and title.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (deg C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Saturated Vapor Pressure (kPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;(Fig. 1) Saturated Vapor Pressure Curve&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f44420310af6c389922535bb38ef36bc9c1375663d90fdbafba259269aba0e39.png" src="../../_images/f44420310af6c389922535bb38ef36bc9c1375663d90fdbafba259269aba0e39.png" />
+</div>
+</div>
+<p>Try commenting out one line in the above code so that only one plots.  These are virtually indistinguishable.  They are different numerical approximations of the same thing. <a class="reference external" href="https://en.wikipedia.org/wiki/Vapour_pressure_of_water">Wikipedia</a> has an interesting review of a number of other formulas and their accuracy at different air temperatures, if you are interested. In many cases, errors arise at high temperatures (e.g., for applications in pressure cooking or boilers). For the purposes of our class, either of the formulas here is fine.</p>
+<section id="pause-and-think">
+<h2>Pause and think<a class="headerlink" href="#pause-and-think" title="Link to this heading">#</a></h2>
+<p>The plot above is very important to our considerations of precipitation, storms, floods, and flood probabilities.  The first step for precipitation to form is for the atmosphere to carry enough moisture (water vapor) to reach the saturated vapor pressure long enough for condensation to form a lot of droplets, which fall as precipitation.  As we discussed in class, the heaviest rain events in the Pacific Northwest are from <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2011EO320001">atmospheric rivers</a>, which are warmer than average storms and carry a lot of moisture from the tropics in a narrow band.</p>
+<p>The plot above should also give you pause as you think about warming temperatures.  Within typical atmospheric temperatures, the saturated vapor pressure increases rapidly with temperature (6-7% per degree C) – this has led many people to postulate that atmospheric rivers in a future warmer climate will carry more water and thus produce more intense rainfall.</p>
+</section>
+<section id="continuing-with-our-equations">
+<h2>Continuing with our equations<a class="headerlink" href="#continuing-with-our-equations" title="Link to this heading">#</a></h2>
+<p>In class, we talked about the mixing ratio being approximately equal to the specific humidity and being approximately equal to 0.622(ev/p) .  Lab 2-3 shows that this is true.  Following Gerard, 2005 (as in the printed lecture notes), we can use this equation specifically for saturated conditions to get:
+$<span class="math notranslate nohighlight">\( q_{sat}(T,z) = 0.622(\frac{e_{sat}(T)}{p(z)}) \)</span>$</p>
+<p>If we combine this with the ideal gas law and the hydrostatic equation, and assume that atmospheric temperature varies linearly with height, as
+$<span class="math notranslate nohighlight">\( T = T_0 +\Gamma z \)</span><span class="math notranslate nohighlight">\(
+where \)</span>\Gamma<span class="math notranslate nohighlight">\( is the environmental temperature lapse rate,
+and integrating from a height \)</span>z<span class="math notranslate nohighlight">\( to the surface, we get
+\)</span><span class="math notranslate nohighlight">\( \rho q_{sat}(z) = \rho_0 q_{0 sat}\exp{(\frac{-z}{H_m})} \)</span><span class="math notranslate nohighlight">\(
+where
+\)</span><span class="math notranslate nohighlight">\( H_m = - \frac{b}{a \Gamma} \)</span><span class="math notranslate nohighlight">\(
+and a = 17.67, and b=243.5\)</span>^\circ$C, as above.</p>
+<p>We can define <strong>condensation of water vapor</strong> as the change in saturated moisture content with time.
+$<span class="math notranslate nohighlight">\( C = - \frac{d(\rho q_{sat})}{dt} ~= - \frac{\partial(\rho q_{sat})}{\partial z} \frac{dz}{dt} = - w \frac{\partial(\rho q_{sat})}{\partial z}\)</span>$</p>
+<p>What this says is that condensation is a function of vertical velocity, w, multiplied by the rate of change in saturated vapor pressure with height.  The saturated vapor pressure decreases with height, as temperatures cool, which causes condensation as air rises.</p>
+<p>Next, for orographic precipitation, we presume that the mountain slope is the primary source of lifting, i.e., vertical velocity.  Combining the equations above, defining the mountain slope at <span class="math notranslate nohighlight">\(\nabla z_s\)</span>, and integrating over a total vertical column of the atmosphere, we get the following:</p>
+<div class="math notranslate nohighlight">
+\[ S = - \int_{z_s}^{top} C dz \]</div>
+<div class="math notranslate nohighlight">
+\[ S = - \int_{z_s}^{top} \vec{u} \cdot \nabla z_s \frac{d}{dz} [\rho q_{sat}] dz \]</div>
+<div class="math notranslate nohighlight">
+\[ S = \rho_0 q_{0 sat}  \vec{u} \cdot \nabla z_s \exp{(\frac{-z_s}{H_m})} \]</div>
+<p>where
+<span class="math notranslate nohighlight">\(S\)</span> is the column-integrated condensation rate (formation of water droplets)</p>
+<p><span class="math notranslate nohighlight">\(\rho_0\)</span> is inital air density (kg/m<span class="math notranslate nohighlight">\(^3\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(q_{0 sat}\)</span> is the initial specific humidity (g water/kg air)</p>
+<p><span class="math notranslate nohighlight">\(\vec{u}\)</span> is the average incoming wind speed (m/s)</p>
+<p><span class="math notranslate nohighlight">\(\nabla z_s\)</span> is the topographic slope, if we define x as the direction of the wind, dz/dx (-)</p>
+<p><span class="math notranslate nohighlight">\(z_s\)</span> is the surface elevation (must be in km if the lapse rate is in km)</p>
+<p><span class="math notranslate nohighlight">\(H_m\)</span> is the scale height for moisture as defined above (<span class="math notranslate nohighlight">\(-\frac{b}{a \Gamma}\)</span>  (km)</p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(\Gamma\)</span> is the environmental lapse rate (can presume -6 <span class="math notranslate nohighlight">\(^{\circ}\)</span>C /km)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in a .xlsx file of the height transect along a mountain range.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;elevation-profile_Olympics.csv&#39;</span><span class="p">)</span>
+<span class="c1"># You may also substitude with &#39;elevation-profile_MtRainier.csv&#39; if you want something else.</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lat</th>
+      <th>long</th>
+      <th>elevation_feet</th>
+      <th>distance_mi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>47.70329</td>
+      <td>-124.40506</td>
+      <td>130.75</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>47.70516</td>
+      <td>-124.39059</td>
+      <td>161.51</td>
+      <td>0.69</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>47.70702</td>
+      <td>-124.37611</td>
+      <td>175.66</td>
+      <td>1.37</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>47.70889</td>
+      <td>-124.36164</td>
+      <td>210.99</td>
+      <td>2.06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>47.71075</td>
+      <td>-124.34716</td>
+      <td>240.02</td>
+      <td>2.74</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>These data are from the USGS <a class="reference external" href="https://streamstats.usgs.gov/ss/">Streamstats</a> page, using their “Elevation Profile Tool” under “Exploration Tools” – after drawing a line in line with where I imagine the primary wind from an atmospheric river will hit, I scrolled down in the output and exported a .csv – (Note that I had to change their headers to not have parentheses to work with this notebook.)</p>
+<p>We will presume that the wind is directly in line with the drawn transect, so that wind dot the gradient of elevation is the same as wind speed times the vertical change with distance here, dz/dx.</p>
+<p>Convert to metric units, and then plot the transect data.</p>
+<p>1 foot = 0.3048 m</p>
+<p>1 mile = 1609.34 m</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elev_m</span> <span class="o">=</span> <span class="mf">0.3048</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">elevation_feet</span>
+<span class="n">distance_m</span> <span class="o">=</span> <span class="mf">1609.34</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">distance_mi</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distance_m</span><span class="p">,</span><span class="n">elev_m</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;topographic profile&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Elevation vs distance along the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;elevation (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/695fe662d76cf12b04cdcbd20bb71443833bdb3d4a4b1a44e1ac6adcfb52e598.png" src="../../_images/695fe662d76cf12b04cdcbd20bb71443833bdb3d4a4b1a44e1ac6adcfb52e598.png" />
+</div>
+</div>
+<p>Now, we can calculate the slope along this line, and presuming we know the wind speed aligned with it, we can calculate the condensentation rate all along the line.  If raindrops that condense fall out immediately and right below where they condense, we can estimate rain rates.  If we do this, what physical processes are we neglecting, and how do you think we could improve on this?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s calculate dz/dx along our slope.</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">distance_m</span><span class="p">)</span>
+<span class="n">dz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">elev_m</span><span class="p">)</span>
+<span class="n">dzdx</span> <span class="o">=</span> <span class="n">dz</span> <span class="o">/</span> <span class="n">dx</span>
+
+<span class="c1"># Note that this only gives us one value between every pair of x and z values in the plot above.  For corresponding</span>
+<span class="c1"># distance and elevation, let&#39;s calculate all the midpoints</span>
+<span class="n">L</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">elev_m</span><span class="p">)</span>
+
+<span class="n">x_mid</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">distance_m</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">distance_m</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">z_mid</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">elev_m</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">elev_m</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="c1">#x_mid = 0.5*(distance_m[0:L-2]+distance_m[1:L-1])</span>
+<span class="c1">#z_mid = 0.5*(elev_m[0:L-2]+elev_m[1:L-1])</span>
+
+<span class="c1"># check sizes</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dzdx</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_mid</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="c1"># Now, lets assume some typical values </span>
+<span class="n">ro0</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="c1"># kg/m^3</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#m/s</span>
+<span class="n">qsat0</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1"># g/kg</span>
+<span class="n">Gamma</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span> <span class="c1"># degrees/km</span>
+<span class="n">a</span><span class="o">=</span><span class="mf">17.67</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">243.5</span>
+<span class="n">Hm</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">Gamma</span><span class="p">)</span>
+
+<span class="n">row</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#kg/m^3. density of water</span>
+
+
+<span class="c1"># Now, combine these with the equation above and plot S/row along the line.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+50
+51
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_mid</span><span class="p">,</span><span class="n">dzdx</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;slope&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Slope vs distance from the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;slope (-)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/87e7b1a0f6219c1f1fb196b9ee03ba6423a55aa3d8b612a1d5bf35d4a70f56ca.png" src="../../_images/87e7b1a0f6219c1f1fb196b9ee03ba6423a55aa3d8b612a1d5bf35d4a70f56ca.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="and-with-this-we-can-calculate-the-instantaneous-condensation-rates-along-the-track">
+<h1>And with this, we can calculate the instantaneous condensation rates along the track<a class="headerlink" href="#and-with-this-we-can-calculate-the-instantaneous-condensation-rates-along-the-track" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[ S = \rho_0 q_{0 sat}  \vec{u} \cdot \nabla z_s \exp{(\frac{-z_s}{H_m})} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">ro0</span><span class="o">*</span><span class="n">qsat0</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">dzdx</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z_mid</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="n">Hm</span><span class="p">)</span>
+<span class="c1"># Think about why it is important to divide by 1000 in the exponent here.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0.79497486   0.36997253   0.90738293   0.75331997   5.01222993
+   1.46712913  -3.18219638   2.73139873  12.17336383   4.63600451
+  -3.19858342  -2.44180397  -4.42762035  10.42584798   9.20735109
+ -17.77653834  -3.85678127  -0.28502599  12.01973021  12.78691437
+   7.27308185   3.25591325   4.84627884   1.62361168 -10.7084716
+   4.361424     4.78912686  -5.52117118   9.77123423   4.27913674
+   1.57199867 -29.40046832  18.5350356  -19.98699866   0.70464057
+   2.68815948   0.91297306 -17.23267986  45.62006545   4.91820355
+ -13.97023206  15.6963278   25.45935478 -10.28773356   1.26234412
+   8.2706899   -3.95374594  16.17481546  10.10257201 -14.62495011]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_mid</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;condensation&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Droplet condensation vs distance from the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;condensation (g/(m^2 s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c7ce234a4560741ef5b9c84cb5bc671f7fdc54ecb7402533a9cbcbde38b8af87.png" src="../../_images/c7ce234a4560741ef5b9c84cb5bc671f7fdc54ecb7402533a9cbcbde38b8af87.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to convert to units of rain rate in mm/hr (which make more sense)</span>
+<span class="c1"># we divide by the density of water and convert units</span>
+<span class="n">rho_w</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#kg/m^3</span>
+<span class="c1"># We know that we have 1000 mm/ m and 1 kg/1000 g, and 3600 s/hr, so we end up with units of mm/hr</span>
+<span class="n">Rainrate</span> <span class="o">=</span> <span class="n">S</span><span class="o">/</span><span class="n">rho_w</span> <span class="o">*</span> <span class="mi">3600</span> 
+
+<span class="c1"># We also know that we can&#39;t get negative rain (there may be some evaporation as the parcels </span>
+<span class="c1"># descend local places where the slope goes down, but we will neglect that for now.</span>
+
+<span class="n">Rainrate</span><span class="p">[</span><span class="n">Rainrate</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># the above finds all values less than 0 in the array and sets them at 0</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_mid</span><span class="p">,</span><span class="n">Rainrate</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;condensation&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Instantaneous rainrate vs distance from the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rain rate (mm/(hr)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c6b6fd8d6a453e510a68963dd9500fc5dd4736f0938cae11b1b4b6806ee270f0.png" src="../../_images/c6b6fd8d6a453e510a68963dd9500fc5dd4736f0938cae11b1b4b6806ee270f0.png" />
+</div>
+</div>
+<section id="does-this-plot-look-reasonable-to-you">
+<h2>Does this plot look reasonable to you?<a class="headerlink" href="#does-this-plot-look-reasonable-to-you" title="Link to this heading">#</a></h2>
+<p>One important engineering skill is to be able to look a computer output and decide if the output is “in the ballpark” or if something went quite wrong.</p>
+<p>If I look up tables of “probable maximum precipitation” for “mountains of western washington,” the highest number I can find is about 2 inches of precipitation in 2 hours.  That corresponds to 25.4 mm/hr.  Clearly, measured precipitation on the ground does not match what I just plotted.</p>
+<section id="what-reasons-can-you-think-of-why">
+<h3>What reasons can you think of why?<a class="headerlink" href="#what-reasons-can-you-think-of-why" title="Link to this heading">#</a></h3>
+<p>This paper by <a class="reference external" href="https://doi.org/10.1175/1520-0469(2004)061%3C1377:ALTOOP%3E2.0.CO;2">Smith and Barstad (2004)</a> explains the main problems with a simple linear model for orographic precipitation and develops mathematical tools to overcome them.</p>
+<p>One simple way to improve our plot is to realize that the atmosphere responds to a smoother version of the mountain slope.  If I smooth the slope over each 10 km in the horizontal, I get a smoother slope and more uniform rain rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can define a function to smooth the slope and apply it</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">moving_avg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">cumsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="n">cumsum</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span> <span class="o">-</span> <span class="n">cumsum</span><span class="p">[:</span><span class="o">-</span><span class="n">n</span><span class="p">])</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">15</span>
+<span class="n">smootherslope</span> <span class="o">=</span> <span class="n">moving_avg</span><span class="p">(</span><span class="n">dzdx</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">smootherz</span> <span class="o">=</span> <span class="n">moving_avg</span><span class="p">(</span><span class="n">z_mid</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">smootherx</span> <span class="o">=</span> <span class="n">moving_avg</span><span class="p">(</span><span class="n">x_mid</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">dzdx_smooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">smootherz</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">smootherx</span><span class="p">)</span>
+
+<span class="n">x_midsmooth</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">smootherx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">smootherx</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">z_midsmooth</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">smootherz</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">smootherz</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smootherx</span><span class="p">,</span><span class="n">smootherslope</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;slope&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_midsmooth</span><span class="p">,</span><span class="n">dzdx_smooth</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;slope2&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Slope vs distance from the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;slope (-)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4fa0912d5901974ebefb55b55f9ed50b03333c6907cd748884e6b290eab54673.png" src="../../_images/4fa0912d5901974ebefb55b55f9ed50b03333c6907cd748884e6b290eab54673.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S_smooth</span> <span class="o">=</span> <span class="n">ro0</span><span class="o">*</span><span class="n">qsat0</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">dzdx_smooth</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z_midsmooth</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="n">Hm</span><span class="p">)</span>
+<span class="c1"># Think about why it is important to divide by 1000 in the exponent here.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S_smooth</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.74911248  0.94253417  0.76007828  1.10526672  1.78702757  2.30018564
+  2.71623101  2.99742448  2.74277601  1.85187282  1.54998645  2.04393424
+  2.19701969  2.14351094  2.03453611  2.4716458   2.12250042  1.82867845
+  1.44433254  0.10530506 -0.40462774 -0.63393767 -1.38916525 -0.61525172
+  1.39260882  1.25589927  1.00209402  2.71791496  3.15785526  2.23081675
+  2.41623244  3.38241144  4.18818718  5.30486939  5.38407022]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rainrate_smooth</span> <span class="o">=</span> <span class="n">S_smooth</span><span class="o">/</span><span class="n">rho_w</span> <span class="o">*</span> <span class="mi">3600</span> 
+<span class="n">Rainrate_smooth</span><span class="p">[</span><span class="n">Rainrate_smooth</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># the above finds all values less than 0 in the array and sets them at 0</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_midsmooth</span><span class="p">,</span><span class="n">Rainrate_smooth</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;rainrate&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Instantaneous rainrate vs distance from the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rain rate (mm/(hr)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5021f0123c487aaf843fe62a838742235ed2cd5001d8157c913f4fe4b5564bf4.png" src="../../_images/5021f0123c487aaf843fe62a838742235ed2cd5001d8157c913f4fe4b5564bf4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distance_m</span><span class="p">,</span><span class="n">elev_m</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;topographic profile&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smootherx</span><span class="p">,</span><span class="n">smootherz</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;smoothed topography&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_midsmooth</span><span class="p">,</span><span class="n">Rainrate_smooth</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;scaled rainrate&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Elevation vs distance along the Olympic Coast&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;distance (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;elevation (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cebac596659c6ecbe4c00b0bd31281db9e4f91e00eb6dc4fd0941585d31ab53f.png" src="../../_images/cebac596659c6ecbe4c00b0bd31281db9e4f91e00eb6dc4fd0941585d31ab53f.png" />
+</div>
+</div>
+<p>This still doesn’t look quite right. (At least when I go hiking in the Olympics on a rainy day, I do not find a special dry spot at exactly 30 km from the shore where no rain falls…)
+<strong>What else are we missing?</strong></p>
+<p>First, droplets do not fall from where they condense in the cloud to the ground instantaneously.  It takes some time for droplets to grow and to fall.  What factors do you think control this time scale?  How could we add this process to our model?</p>
+<p>Next, we have created a model that only varies in the x and z directions. What processes in the real world might complicate what is actually going on here?  When might this 2-D assumption be an okay approximation of the real world?  When would 3-D effects be more important?</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab5-2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 5-2: Flood Probability</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../module6/module6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6) Groundwater Flow</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 5-3: Winds and Orographic Precipitation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pause-and-think">Pause and think</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-our-equations">Continuing with our equations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#and-with-this-we-can-calculate-the-instantaneous-condensation-rates-along-the-track">And with this, we can calculate the instantaneous condensation rates along the track</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#does-this-plot-look-reasonable-to-you">Does this plot look reasonable to you?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-reasons-can-you-think-of-why">What reasons can you think of why?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
