@@ -31,7 +31,7 @@ Note: The lab activities will help you with this problem.   You have three obser
 
 **(c)** What additional information do you need to know to be able to predict whether Well 2 or Well 3 will be the first to detect a contaminant?  Why?
 
-### Problem 4: (1 point) Project Feedback
+### Problem 4: (1 point) Project Feedback (NOTE, Problem 4 will be due separately, the following week.)
 
 In either canvas or slack, you will be assigned two project proposals to review.
 Here are the questions to address in the review:
